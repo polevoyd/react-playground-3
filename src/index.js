@@ -1,40 +1,46 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import Map from './Map'
+import InfoWindow from './InfoWindow'
 
-import Location from './components/Location.js';
-import Map from './components/Map.js';
+class App extends Component {
+  constructor() {
+    super();
+    this.createInfoWindow = this.createInfoWindow.bind(this)
+  }
 
+  createInfoWindow(e, map) {
+    const infoWindow = new window.google.maps.InfoWindow({
+        content: '<div id="infoWindow" />',
+        position: { lat: e.latLng.lat(), lng: e.latLng.lng() }
+    })
+    infoWindow.addListener('domready', e => {
+      render(<InfoWindow />, document.getElementById('infoWindow'))
+    })
+    infoWindow.open(map)
+  }
 
-import './index.css';
-
-import { config } from './config.js';
-
-
-class App extends React.Component
-{
-
-    render(){
-        return (
-            <div>
-                <Location />
-                <Map />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <Map
+        id="myMap"
+        options={{
+          center: { lat: 41.0082, lng: 28.9784 },
+          zoom: 8
+        }}
+        onMapLoad={map => {
+          const marker = new window.google.maps.Marker({
+            position: { lat: 41.0082, lng: 28.9784 },
+            map: map,
+            title: 'Hello Istanbul!'
+          });
+          marker.addListener('click', e => {
+            this.createInfoWindow(e, map)
+          })
+        }}
+      />
+    );
+  }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Starting point 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
