@@ -8,3 +8,9 @@
   width: 60vw;
   border: 1px black solid;
 }
+
+.location-input {
+  display: block;
+  margin: 0 auto;
+  width: 50vw;
+}

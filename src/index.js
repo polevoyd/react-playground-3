@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Location from './components/Location.js';
 import Map from './components/Map.js';
+
 
 import './index.css';
 
@@ -13,7 +15,10 @@ class App extends React.Component
 
     render(){
         return (
-            <Map />
+            <div>
+                <Location />
+                <Map />
+            </div>
         )
     }
 }
