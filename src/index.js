@@ -20,6 +20,7 @@ class App extends Component {
     infoWindow.open(map)
   }
 
+  
   render() {
     return (
         /*
