@@ -22,6 +22,13 @@ class App extends Component {
 
   render() {
     return (
+        /*
+        id={}
+        options={
+            center: {lat, lng},
+            zoom: 5
+        }
+        */
       <Map
         id="myMap"
         options={{
