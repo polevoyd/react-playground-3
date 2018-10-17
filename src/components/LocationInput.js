@@ -1,7 +1,7 @@
 import React from 'react';
 import '../index.css';
 
-class Location extends React.Component {
+class LocationInput extends React.Component {
 
 
     render() {
@@ -13,4 +13,4 @@ class Location extends React.Component {
 }
 
 
-export default Location;
+export default LocationInput;

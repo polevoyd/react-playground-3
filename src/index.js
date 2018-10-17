@@ -2,12 +2,9 @@
 import './config'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import mapboxgl from 'mapbox-gl';
-import Map from './components/Map';
+import LocationInput from './components/LocationInput';
 import './index.css';
-import { config } from './config';
 import MapContainer from './components/MapContainer';
-import { div } from 'gl-matrix/src/gl-matrix/vec2';
 
 class App extends React.Component {
 
@@ -17,6 +14,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <LocationInput />
         <MapContainer />
       </div>
     )
