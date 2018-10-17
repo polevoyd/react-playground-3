@@ -8,6 +8,15 @@ import MapContainer from './components/MapContainer';
 
 class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+      location: undefined
+    }
+  }
+
   render() {
 
     

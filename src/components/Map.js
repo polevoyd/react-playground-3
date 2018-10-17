@@ -9,9 +9,13 @@ class Map extends React.Component {
   componentDidMount(){
 
     mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
+
     const map = new mapboxgl.Map({
         container: document.getElementById('mapbox-container'),
-        style: 'mapbox://styles/mapbox/streets-v9'
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [-122.420679, 37.772537],
+        zoom: 13,
+        hash: true 
     });
   }
 
