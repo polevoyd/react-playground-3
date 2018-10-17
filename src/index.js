@@ -83,17 +83,16 @@ class App extends React.Component {
     const request = require('request');
     const twitter_api = 'https://api.twitter.com/1.1/search/tweets.json?q=kutuza';
     const bearer_token = config.REACT_APP_TWITTER_BEARER_TOKEN2;
-    const bearer_token2 = config.REACT_APP_TWITTER_BEARER_TOKEN;
 
+    
     request({ url: twitter_api,
-      method:'GET',
-      qs:{"screen_name":"stadolf"},
-      json:true,
-      headers: {
-          "Authorization": "Bearer " + bearer_token,
-          'Access-Control-Allow-Origin' : '*'
-      }
-  
+        method:'GET',
+        qs:{"screen_name":"stadolf"},
+        json:true,
+        headers: {
+            "Authorization": "Bearer " + bearer_token
+        }
+    
     }, function(err, resp, body) {
     
         console.dir(body);
