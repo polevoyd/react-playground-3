@@ -17,6 +17,18 @@ class App extends React.Component {
     }
   }
 
+  handleLocationChange() {
+
+    // TODO: checking if input is actually a location
+    // by sending request and get response
+    // if yes, then change state.location to a new one
+
+    this.setState({
+      
+    })
+  }
+
+  // Entry point to app
   render() {
 
     
