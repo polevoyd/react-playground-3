@@ -53,7 +53,7 @@ class App extends React.Component {
   handleLocationSubmit(event) {
 
     event.preventDefault();
-    
+
     // TODO: checking if input is actually a location
     // by sending request and get response
     // if yes, then change state.location to a new one
@@ -78,7 +78,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange}/>
+        <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} on/>
         <MapContainer coordinates={this.state.locationLngLat}/>
       </div>
     )

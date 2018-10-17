@@ -3,26 +3,21 @@ import React from 'react';
 import mapboxgl from 'mapbox-gl';
 import '../index.css';
 
-let map = {};
+let map;
 
 class Map extends React.Component {
 
-  componentDidUpdate(){
+  
+  componentWillReceiveProps(nextProps){
 
-
-    // // Creating and rendering a mapbox
-    // mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
-    // const map = new mapboxgl.Map({
-    //     container: document.getElementById('mapbox-container'),
-    //     style: 'mapbox://styles/mapbox/streets-v9',
-    //     center: this.props.locationLngLat,
-    //     zoom: 13,
-    //     hash: true 
-    // });
-    // map.setCenter(this.props.locationLngLat)
-    console.log(map)
+    if (nextProps.coordinates !== this.props.coordinates) {
+      map.setCenter(this.props.coordinates)
+    }  
   }
 
+  /* ------------------------------------------------------------------------------------------- */
+  //          Rendering map to a screen
+  /* ------------------------------------------------------------------------------------------- */
   renderMapToScreen(){
 
     mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
