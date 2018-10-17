@@ -59,6 +59,9 @@ class App extends React.Component {
     // if yes, then change state.location to a new one
 
     this.requestLocationGeocode(this.state.location)
+    
+    // starting to search for tweets
+    this.searchForTweets();
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -75,27 +78,28 @@ class App extends React.Component {
   //           on submit - search for a tweets
   /* ------------------------------------------------------------------------------------------- */
 
-  searchForTweets() {
+  searchForTweets(locationToSearch) {
 
     const request = require('request');
-    const consumer_key = config.REACT_APP_TWITTER_KEY;
-    const consumer_secret = config.REACT_APP_TWITTER_SECRET_KEY;
-    const encode_secret = new Buffer(consumer_key + ':' + consumer_secret).toString('base64');
+    const twitter_api = 'https://api.twitter.com/1.1/search/tweets.json?q=kutuza';
+    const bearer_token = config.REACT_APP_TWITTER_BEARER_TOKEN2;
+    const bearer_token2 = config.REACT_APP_TWITTER_BEARER_TOKEN;
 
-    const options = {
-
-      url: 'https://api.twitter.com/oauth2/token',
+    request({ url: twitter_api,
+      method:'GET',
+      qs:{"screen_name":"stadolf"},
+      json:true,
       headers: {
-        'Authorization': 'Basic ' + encode_secret,
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      },
-      body: 'grant_type=client_credentials'
-      };
-
-    request.post(options, (error, response, body) => {
-
-      console.log(body)
+          "Authorization": "Bearer " + bearer_token,
+          'Access-Control-Allow-Origin' : '*'
+      }
+  
+    }, function(err, resp, body) {
+    
+        console.dir(body);
+    
     });
+  
   }
   
 
