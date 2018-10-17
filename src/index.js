@@ -59,6 +59,9 @@ class App extends React.Component {
     // if yes, then change state.location to a new one
 
     this.requestLocationGeocode(this.state.location)
+    
+    // starting to search for tweets
+    this.searchForTweets();
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -72,14 +75,42 @@ class App extends React.Component {
   }
 
   /* ------------------------------------------------------------------------------------------- */
+  //           on submit - search for a tweets
+  /* ------------------------------------------------------------------------------------------- */
+
+  searchForTweets(locationToSearch) {
+
+    const request = require('request');
+    const twitter_api = 'https://api.twitter.com/1.1/search/tweets.json?q=kutuza';
+    const bearer_token = config.REACT_APP_TWITTER_BEARER_TOKEN2;
+
+    
+    request({ url: twitter_api,
+        method:'GET',
+        qs:{"screen_name":"stadolf"},
+        json:true,
+        headers: {
+            "Authorization": "Bearer " + bearer_token
+        }
+    
+    }, function(err, resp, body) {
+    
+        console.dir(body);
+    
+    });
+  
+  }
+  
+
+  /* ------------------------------------------------------------------------------------------- */
 
   // Entry point
   render() {
 
     return (
       <div>
-        <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} on/>
-        <MapContainer coordinates={this.state.locationLngLat}/>
+        <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
+        <MapContainer coordinates={this.state.locationLngLat} />
       </div>
     )
   }
