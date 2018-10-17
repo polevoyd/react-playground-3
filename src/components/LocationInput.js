@@ -3,9 +3,7 @@ import '../index.css';
 
 class LocationInput extends React.Component {
 
-
     render() {
-
         return(
             <form onSubmit={this.props.handleLocationSubmit} className="location-input">
                 <label>
@@ -16,6 +14,5 @@ class LocationInput extends React.Component {
         )
     }
 }
-
 
 export default LocationInput;

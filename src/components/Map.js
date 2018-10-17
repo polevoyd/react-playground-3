@@ -8,6 +8,9 @@ class Map extends React.Component {
 
   componentDidMount(){
 
+
+   
+
     // // Location Lang, Lat
     // let locationCoordinates = [];
 
@@ -30,7 +33,7 @@ class Map extends React.Component {
     //     // locationCoordinates = results.features[0].center;
 
 
-
+    
 
         
     //   })
