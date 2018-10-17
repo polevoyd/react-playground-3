@@ -18,13 +18,16 @@ class App extends React.Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
-  handleLocationChange() {
+  handleLocationChange(event) {
+
+    event.preventDefault();
 
     // https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token={config.REACT_APP_MAPS_KEY}
     // TODO: checking if input is actually a location
     // by sending request and get response
     // if yes, then change state.location to a new one
 
+    console.log(event.target.childNodes)
     this.setState({
       
     })
@@ -37,7 +40,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <LocationInput />
+        <LocationInput handleLocationChange={this.handleLocationChange}/>
         <MapContainer />
       </div>
     )

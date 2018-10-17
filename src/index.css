@@ -1,6 +1,11 @@
 * {
-  outline: 1px orange solid;
+  /* outline: 1px orange solid; */
 }
+
+html{
+  padding: 4em;
+}
+
 
 #mapbox-container {
   margin: 10vh auto;
@@ -12,8 +17,22 @@
 
 
 .location-input {
-  display: block;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 5vh;
   margin: 0 auto;
   width: 50vw;
 }
 
+.location-input *{
+  margin: 0 auto;
+}
+
+.location-input label input{
+  width: 40vw;
+}
+
+.location-input button{
+  width: 30vw;
+}
