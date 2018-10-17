@@ -1,16 +1,19 @@
 * {
-  /* outline: 5px orange solid; */
+  outline: 1px orange solid;
 }
 
-.map-div {
+#mapbox-container {
   margin: 10vh auto;
   height: 60vh;
   width: 60vw;
   border: 1px black solid;
 }
 
+
+
 .location-input {
   display: block;
   margin: 0 auto;
   width: 50vw;
 }
+
