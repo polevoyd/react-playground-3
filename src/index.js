@@ -72,14 +72,42 @@ class App extends React.Component {
   }
 
   /* ------------------------------------------------------------------------------------------- */
+  //           on submit - search for a tweets
+  /* ------------------------------------------------------------------------------------------- */
+
+  searchForTweets() {
+
+    const request = require('request');
+    const consumer_key = config.REACT_APP_TWITTER_KEY;
+    const consumer_secret = config.REACT_APP_TWITTER_SECRET_KEY;
+    const encode_secret = new Buffer(consumer_key + ':' + consumer_secret).toString('base64');
+
+    const options = {
+
+      url: 'https://api.twitter.com/oauth2/token',
+      headers: {
+        'Authorization': 'Basic ' + encode_secret,
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: 'grant_type=client_credentials'
+      };
+
+    request.post(options, (error, response, body) => {
+
+      console.log(body)
+    });
+  }
+  
+
+  /* ------------------------------------------------------------------------------------------- */
 
   // Entry point
   render() {
 
     return (
       <div>
-        <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} on/>
-        <MapContainer coordinates={this.state.locationLngLat}/>
+        <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
+        <MapContainer coordinates={this.state.locationLngLat} />
       </div>
     )
   }
