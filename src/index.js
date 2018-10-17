@@ -21,13 +21,15 @@ class App extends React.Component {
   }
 
 
+  /* ------------------------------------------------------------------------------------------- */
+
   // request a location by name and get back a lang and lat of that location on a map
   requestLocationGeocode(locationName) {
     // Location Lang, Lat
     let locationCoordinates = [];
 
     // Building request and based on response create a map
-    const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.props.placeToSearch}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
+    const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.location}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
     
     // Sending a request
     fetch(linkToRequest)
@@ -36,11 +38,11 @@ class App extends React.Component {
 
         // For just take first and most relevant result
         // results.features - array of locations
-        
         this.setState({
           location: results.features[0].place_name
         })
         
+        // 
         console.log(results.features[0].center)
         // locationCoordinates = results.features[0].center;
 
@@ -51,7 +53,9 @@ class App extends React.Component {
       })
   }
 
-  // handle location submit - change location in a state after user clicked 'Submit'
+  /* ------------------------------------------------------------------------------------------- */
+
+  // on submit - change location in a state after user clicked 'Submit'
   handleLocationSubmit(event) {
 
     event.preventDefault();
@@ -61,13 +65,12 @@ class App extends React.Component {
     // by sending request and get response
     // if yes, then change state.location to a new one
 
-   
-    this.setState({
-      location: event.target[0].value
-    })
+
 
     this.requestLocationGeocode(this.state.location)
   }
+
+  /* ------------------------------------------------------------------------------------------- */
 
   // on change will alternate status as well
   handleLocationChange(event) {
@@ -76,7 +79,9 @@ class App extends React.Component {
     })
   }
 
-  // 0 Entry point to app
+  /* ------------------------------------------------------------------------------------------- */
+
+  // Entry point
   render() {
 
     
