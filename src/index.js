@@ -1,5 +1,5 @@
 
-import './config'
+import { config } from './config';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import LocationInput from './components/LocationInput';
@@ -14,7 +14,8 @@ class App extends React.Component {
     this.state = {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
-      location: 'Seattle'
+      location: 'Seattle',
+      locationCoordinates: [0, 0]
     }
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
   }
@@ -35,6 +36,28 @@ class App extends React.Component {
     // by sending request and get response
     // if yes, then change state.location to a new one
 
+    // Location Lang, Lat
+    let locationCoordinates = [];
+
+    // Building request and based on response create a map
+    const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.location}.json?access_token=${config.REACT_APP_MAPS_KEYgh}`;
+    
+    // Sending a request
+    fetch(linkToRequest)
+      .then(results => results.json())
+      .then((results) => {
+
+        // For just take first and most relevant result
+        // results.features - array of locations
+        
+        this.setState({
+          location: results.features[0].place_name,
+          locationCoordinates: results.features[0].center
+        })
+        
+        // console.log(results.features[0].center)
+        locationCoordinates = results.features[0].center;
+      })
    
     this.setState({
       location: event.target[0].value
