@@ -8,8 +8,9 @@ class Map extends React.Component {
 
   componentDidMount(){
 
-    mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
+    // Do request here and based on response create a map
 
+    mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
     const map = new mapboxgl.Map({
         container: document.getElementById('mapbox-container'),
         style: 'mapbox://styles/mapbox/streets-v9',

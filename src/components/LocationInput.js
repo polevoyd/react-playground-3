@@ -7,7 +7,7 @@ class LocationInput extends React.Component {
     render() {
 
         return(
-            <form onSubmit={this.props.handleLocationChange} className="location-input">
+            <form onSubmit={this.props.handleLocationSubmit} className="location-input">
                 <label>
                     <input type="text" name="location" placeholder="Seattle"></input>
                 </label>

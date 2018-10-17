@@ -12,13 +12,21 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-
-      location: undefined
+      // set initial location to current location and load it on mount
+      // 'Seattle' - only for a testing simplicity
+      location: 'Seattle'
     }
-    this.handleLocationChange = this.handleLocationChange.bind(this);
+    this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
   }
 
-  handleLocationChange(event) {
+
+  // request a location by name and get back a lang and lat of that location on a map
+  requestLocationGeocode(locationName) {
+
+  }
+
+  // handle location submit - change location in a state after user clicked 'Submit'
+  handleLocationSubmit(event) {
 
     event.preventDefault();
 
@@ -27,20 +35,22 @@ class App extends React.Component {
     // by sending request and get response
     // if yes, then change state.location to a new one
 
-    console.log(event.target.childNodes)
+   
     this.setState({
-      
+      location: event.target[0].value
     })
+
+    this.requestLocationGeocode(this.state.location)
   }
 
-  // Entry point to app
+  // 0 Entry point to app
   render() {
 
     
 
     return (
       <div>
-        <LocationInput handleLocationChange={this.handleLocationChange}/>
+        <LocationInput handleLocationSubmit={this.handleLocationSubmit}/>
         <MapContainer />
       </div>
     )
