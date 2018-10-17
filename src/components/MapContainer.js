@@ -7,7 +7,7 @@ class MapContainer extends React.Component {
     render() {
         return (
             <div id='mapbox-container'>
-                <Map placeToSearch={this.props.placeToSearch} locationLngLat={this.props.locationLngLat}/>
+                <Map locationLngLat={this.props.locationLngLat}/>
             </div>
         )
     }

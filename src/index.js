@@ -85,7 +85,7 @@ class App extends React.Component {
     return (
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange}/>
-        <MapContainer placeToSearch={this.state.location} locationLngLat={this.state.locationLngLat}/>
+        <MapContainer locationLngLat={this.state.locationLngLat}/>
       </div>
     )
   }
