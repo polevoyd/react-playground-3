@@ -40,12 +40,12 @@ class Map extends React.Component {
 
 
 
-        // // Creating and rendering a mapbox
+        // Creating and rendering a mapbox
         // mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
         // let map = new mapboxgl.Map({
         //     container: document.getElementById('mapbox-container'),
         //     style: 'mapbox://styles/mapbox/streets-v9',
-        //     center: this.state.locationCoordinates,
+        //     center: this.props.placeLngLat,
         //     zoom: 13,
         //     hash: true 
         // });
@@ -64,6 +64,7 @@ class Map extends React.Component {
 
   render() {
 
+    
     return (
       <div></div>
     );

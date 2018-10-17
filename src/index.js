@@ -14,7 +14,8 @@ class App extends React.Component {
     this.state = {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
-      location: 'Seattle'
+      location: 'Seattle',
+      locationLngLat: []
     }
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
@@ -42,20 +43,19 @@ class App extends React.Component {
           location: results.features[0].place_name
         })
         
-        // 
-        console.log(results.features[0].center)
-        // locationCoordinates = results.features[0].center;
+        // setting return for a function
+        locationCoordinates = results.features[0].center;
 
 
-
-
-        
       })
+
+      return locationCoordinates;
   }
 
   /* ------------------------------------------------------------------------------------------- */
+  //          on submit - change location in a state after user clicked 'Submit'
+  /* ------------------------------------------------------------------------------------------- */
 
-  // on submit - change location in a state after user clicked 'Submit'
   handleLocationSubmit(event) {
 
     event.preventDefault();
@@ -71,8 +71,9 @@ class App extends React.Component {
   }
 
   /* ------------------------------------------------------------------------------------------- */
+  //           on change - will alternate status as well
+  /* ------------------------------------------------------------------------------------------- */
 
-  // on change will alternate status as well
   handleLocationChange(event) {
     this.setState({
       location: event.target.value
