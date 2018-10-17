@@ -18,7 +18,6 @@ class App extends React.Component {
     return (
       <div>
         <MapContainer />
-        <Map/>
       </div>
     )
   }
