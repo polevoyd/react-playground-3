@@ -30,7 +30,7 @@ class App extends React.Component {
 
     event.preventDefault();
 
-    // https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token={config.REACT_APP_MAPS_KEY}
+    
     // TODO: checking if input is actually a location
     // by sending request and get response
     // if yes, then change state.location to a new one

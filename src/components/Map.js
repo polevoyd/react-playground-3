@@ -8,8 +8,26 @@ class Map extends React.Component {
 
   componentDidMount(){
 
+    const placeToRequest = 'Seattle'
     // Do request here and based on response create a map
+    const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${placeToRequest}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
+    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Creating and rendering a mapbox
     mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
     const map = new mapboxgl.Map({
         container: document.getElementById('mapbox-container'),
