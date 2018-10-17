@@ -29,9 +29,6 @@ class App extends React.Component {
   // request a location by name and get back a lang and lat of that location on a map
   requestLocationGeocode(locationName) {
 
-    // Location Lang, Lat
-    let locationCoordinates = [];
-
     // Building request and based on response create a map
     const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.location}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
     
@@ -46,9 +43,6 @@ class App extends React.Component {
           location: results.features[0].place_name,
           locationLngLat: results.features[0].center
         })
-        
-        // setting return for a function
-        locationCoordinates = results.features[0].center;
       })
   }
 
@@ -85,7 +79,7 @@ class App extends React.Component {
     return (
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange}/>
-        <MapContainer locationLngLat={this.state.locationLngLat}/>
+        <MapContainer coordinates={this.state.locationLngLat}/>
       </div>
     )
   }
