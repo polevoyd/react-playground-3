@@ -109,7 +109,7 @@ class App extends React.Component {
         // Venue Object
         let venueObject = {
           name : element.venue.name,
-          categoryName : element.venue,
+          categoryName : element.venue.categories[0].name,
           locationObj : element.venue.location,
           categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
         };
