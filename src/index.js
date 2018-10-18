@@ -92,9 +92,6 @@ class App extends React.Component {
       // response.response.groups[0].items - array of venues
       const arrayOfVenues = response.response.groups[0].items;
 
-      const venuesWithPhotos = arrayOfVenues.filter(element => {
-        return element.venue.photos.count === 0;
-      })
       console.log(venuesWithPhotos)
     })
     .catch(error => {
