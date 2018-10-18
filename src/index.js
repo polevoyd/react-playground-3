@@ -7,8 +7,6 @@ import './index.css';
 import MapContainer from './components/MapContainer';
 
 
-let Twitter = require('twitter');
-
 
 class App extends React.Component {
 
@@ -84,37 +82,24 @@ class App extends React.Component {
 
   searchForTweets(locationToSearch) {
 
+    /*---------------------------------------------------------------*/
+    /*            This is works with a proxy but super slow          */
+    /*---------------------------------------------------------------*/
 
-    const twitter_api = 'https://api.twitter.com/1.1/search/tweets.json?q=sobaka';
-    const bearer_token = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
-    
-    fetch(twitter_api, {
+    // const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?q=sobaka`;
+
+    // geocode = long, lat, radius 
+    const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?geocode=37.781157,-122.398720,1mi`;
+    const bearer_token_proxy = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
+    fetch(twitter_api_proxy, {
       headers: {
-        "Authorization": "Bearer " + bearer_token,
-          "Access-Control-Request-Method": "GET" ,
-          "Access-Control-Request-Headers": "*"
+        "Authorization": "Bearer " + bearer_token_proxy
       }
     })
     .then(response => response.json())
     .then(response => {
       console.log(response)
     })
-
-    /*---------------------------------------------------------------*/
-    /*            This is works with a proxy but super slow          */
-    /*---------------------------------------------------------------*/
-
-    // const twitter_api_proxy = 'https://cors-anywhere.herokuapp.com/' + 'https://api.twitter.com/1.1/search/tweets.json?q=sobaka';
-    // const bearer_token_proxy = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
-    // fetch(twitter_api_proxy, {
-    //   headers: {
-    //     "Authorization": "Bearer " + bearer_token_proxy
-    //   }
-    // })
-    // .then(response => response.json())
-    // .then(response => {
-    //   console.log(response)
-    // })
 
 
 
