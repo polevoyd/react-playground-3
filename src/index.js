@@ -113,14 +113,13 @@ class App extends React.Component {
           locationObj : response.response.groups[0].items[0].venue.location,
           categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
         };
+
+        return venueObject;
       })
 
-      console.log(response.response.groups[0].items[0].venue)
+      console.log(arrayOfVenues)
     })
-    .catch(error => {
-
-      console.error(error);
-    });
+    .catch(error => console.error(error));
 
     /*---------------------------------------------------------------*/
     /*            This is works with a proxy but super slow          */
