@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import LocationInput from './components/LocationInput';
 import './index.css';
 import MapContainer from './components/MapContainer';
+import { rejects } from 'assert';
 
 /* ------------------------------------------------------------------------------------------- */
 //          getting a user location and setting up a map center
@@ -68,13 +69,22 @@ class App extends React.Component {
   //          on submit - change location in a state after user clicked 'Submit'
   /* ------------------------------------------------------------------------------------------- */
 
-  handleLocationSubmit(event) {
+  async handleLocationSubmit(event) {
 
     event.preventDefault();
-    this.requestLocationGeocode(this.state.location)
-    
+    let promise = new Promise((resolve, rejects) => {
+      setTimeout(() => resolve(this.requestLocationGeocode(this.state.location)), 5000);
+    })
+
+
+    await this.searchForVenues();
+
+
+
+    // this.requestLocationGeocode(this.state.location)
+
     // starting to search for venue
-    this.searchForVenues();
+    // this.searchForVenues();
     
   }
 
