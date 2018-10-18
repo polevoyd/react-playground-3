@@ -62,7 +62,7 @@ class App extends React.Component {
 
     this.requestLocationGeocode(this.state.location)
     
-    // starting to search for tweets
+    // starting to search for venue
     this.searchForVenues();
   }
 
@@ -82,11 +82,16 @@ class App extends React.Component {
 
   searchForVenues() {
 
-    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=10&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=coffee`)
+    const amountToRequest = 10;
+    let keywordToSearch = 'coffee';
+
+    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
     .then(response => response.json())
     .then(response => {
 
-      console.log(response.response)
+      // response.response.groups[0].items - array of venues
+      // 
+      console.log(response.response.groups[0].items)
     })
     .catch(error => {
       console.error(error);
