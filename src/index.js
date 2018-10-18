@@ -95,12 +95,13 @@ class App extends React.Component {
       console.log(arrayOfVenues)
     })
     .catch(error => {
-      
+
       console.error(error);
     });
 
     /*---------------------------------------------------------------*/
     /*            This is works with a proxy but super slow          */
+    /*                        TWITTER API                            */
     /*---------------------------------------------------------------*/
 
     // const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?q=sobaka`;
