@@ -19,7 +19,7 @@ class App extends React.Component {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
       location: 'Seattle',
-      locationLngLat: []
+      locationLngLat: [-122.3301, 47.6038]
     }
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
@@ -80,7 +80,15 @@ class App extends React.Component {
   //           on submit - search for a tweets
   /* ------------------------------------------------------------------------------------------- */
 
-  searchForTweets(locationToSearch) {
+  searchForVenues() {
+
+    fetch('https://api.foursquare.com/v2/venues/explore?client_id=CLIENT_ID&client_secret=CLIENT_SECRET&v=20180323&limit=1&ll=40.7243,-74.0018&query=coffee')
+    .then(function() {
+        // Code for handling API response
+    })
+    .catch(function() {
+        // Code for handling errors
+    });
 
     /*---------------------------------------------------------------*/
     /*            This is works with a proxy but super slow          */
@@ -89,20 +97,18 @@ class App extends React.Component {
     // const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?q=sobaka`;
 
     // geocode = long, lat, radius 
-    const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?geocode=37.781157,-122.398720,1mi`;
-    const bearer_token_proxy = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
-    fetch(twitter_api_proxy, {
-      headers: {
-        "Authorization": "Bearer " + bearer_token_proxy
-      }
-    })
-    .then(response => response.json())
-    .then(response => {
-      console.log(response)
-    })
-
-
-
+    // const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?geocode=37.781157,-122.398720,1mi`;
+    // const bearer_token_proxy = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
+    // fetch(twitter_api_proxy, {
+    //   headers: {
+    //     "Authorization": "Bearer " + bearer_token_proxy
+    //   }
+    // })
+    // .then(response => response.json())
+    // .then(response => {
+      
+    //   console.log(response);
+    // })
   }
   
 
