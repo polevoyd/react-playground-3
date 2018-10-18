@@ -45,7 +45,6 @@ class App extends React.Component {
   //        request a location by name and get back a lang and lat of that location on a map
   /* ------------------------------------------------------------------------------------------- */
 
-  
   requestLocationGeocode(locationName) {
 
     // Building request and based on response create a map
@@ -72,11 +71,6 @@ class App extends React.Component {
   handleLocationSubmit(event) {
 
     event.preventDefault();
-
-    // TODO: checking if input is actually a location
-    // by sending request and get response
-    // if yes, then change state.location to a new one
-
     this.requestLocationGeocode(this.state.location)
     
     // starting to search for venue
