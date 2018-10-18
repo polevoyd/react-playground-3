@@ -82,7 +82,7 @@ class App extends React.Component {
 
   searchForVenues() {
 
-    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=10&ll=47.6038,-122.3301&query=coffee`)
+    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=10&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=coffee`)
     .then(response => response.json())
     .then(response => {
 
