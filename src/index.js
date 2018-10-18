@@ -84,43 +84,21 @@ class App extends React.Component {
 
   searchForTweets(locationToSearch) {
 
-    const request = require('request');
+
     const twitter_api = 'https://api.twitter.com/1.1/search/tweets.json?q=sobaka';
     const bearer_token = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
-
     
-    request({ url: twitter_api,
-        method:'GET',
-        // qs:{"screen_name":"stadolf"},
-        // json:true,
-        headers: {
-            "Authorization": "Bearer " + bearer_token
-        }
-    
-    }, function(err, resp, body) {
-    
-        console.dir(body);
-    
-    });
-
-
-
-    
-        // let client = new Twitter({
-
-    //   consumer_key: config.REACT_APP_TWITTER_API_ACCESS_TOKEN,
-    //   consumer_secret: config.REACT_APP_TWITTER_API_ACCESS_TOKEN_SECRET,
-    //   bearer_token: config.REACT_APP_TWITTER_BEARER_TOKEN_OBJECT
-    // })
-
-    // client.get('favorites/list', function(error, tweets, response) {
-
-    //   if (error) throw error;
-
-    //   console.log(tweets);
-    //   console.log(response);
-    // })
-
+    fetch(twitter_api, {
+      headers: {
+        "Authorization": "Bearer " + bearer_token,
+          "Access-Control-Request-Method": "GET" ,
+          "Access-Control-Request-Headers": "*"
+      }
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+    })
 
     /*---------------------------------------------------------------*/
     /*            This is works with a proxy but super slow          */
