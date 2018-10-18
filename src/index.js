@@ -75,6 +75,7 @@ class App extends React.Component {
     
     // starting to search for venue
     this.searchForVenues();
+    
   }
 
   /* ------------------------------------------------------------------------------------------- */
