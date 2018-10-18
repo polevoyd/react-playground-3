@@ -102,8 +102,16 @@ class App extends React.Component {
 
       // response.response.groups[0].items - array of venues
       // const arrayOfVenues = response.response.groups[0].items;
+      // https://foursquare.com/img/categories/food/default_64.png
 
-      console.log(response.response.groups[0].items)
+      const arrayOfPictures = response.response.groups[0].items.map( element => {
+
+        return `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`;
+      })
+      const categoryPic = `https://foursquare.com/img/categories/food/default_64.png`
+
+
+      console.log(arrayOfPictures)
     })
     .catch(error => {
 
