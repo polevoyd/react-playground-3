@@ -6,6 +6,10 @@ import LocationInput from './components/LocationInput';
 import './index.css';
 import MapContainer from './components/MapContainer';
 
+
+let Twitter = require('twitter');
+
+
 class App extends React.Component {
 
   constructor(props) {
@@ -81,33 +85,61 @@ class App extends React.Component {
   searchForTweets(locationToSearch) {
 
     const request = require('request');
-    const twitter_api = 'https://api.twitter.com/1.1/search/tweets.json?q=kutuza';
+    const twitter_api = 'https://api.twitter.com/1.1/search/tweets.json?q=sobaka';
     const bearer_token = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
 
     
-    // request({ url: twitter_api,
-    //     method:'GET',
-    //     qs:{"screen_name":"stadolf"},
-    //     json:true,
-    //     headers: {
-    //         "Authorization": "Bearer " + bearer_token
-    //     }
+    request({ url: twitter_api,
+        method:'GET',
+        // qs:{"screen_name":"stadolf"},
+        // json:true,
+        headers: {
+            "Authorization": "Bearer " + bearer_token
+        }
     
-    // }, function(err, resp, body) {
+    }, function(err, resp, body) {
     
-    //     console.dir(body);
+        console.dir(body);
     
-    // });
+    });
 
 
-    // fetch(twitter_api, {
+
+    
+        // let client = new Twitter({
+
+    //   consumer_key: config.REACT_APP_TWITTER_API_ACCESS_TOKEN,
+    //   consumer_secret: config.REACT_APP_TWITTER_API_ACCESS_TOKEN_SECRET,
+    //   bearer_token: config.REACT_APP_TWITTER_BEARER_TOKEN_OBJECT
+    // })
+
+    // client.get('favorites/list', function(error, tweets, response) {
+
+    //   if (error) throw error;
+
+    //   console.log(tweets);
+    //   console.log(response);
+    // })
+
+
+    /*---------------------------------------------------------------*/
+    /*            This is works with a proxy but super slow          */
+    /*---------------------------------------------------------------*/
+
+    // const twitter_api_proxy = 'https://cors-anywhere.herokuapp.com/' + 'https://api.twitter.com/1.1/search/tweets.json?q=sobaka';
+    // const bearer_token_proxy = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
+    // fetch(twitter_api_proxy, {
     //   headers: {
-        
+    //     "Authorization": "Bearer " + bearer_token_proxy
     //   }
-    // }).then(response => {
+    // })
+    // .then(response => response.json())
+    // .then(response => {
     //   console.log(response)
     // })
-  
+
+
+
   }
   
 
