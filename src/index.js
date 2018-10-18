@@ -63,7 +63,7 @@ class App extends React.Component {
     this.requestLocationGeocode(this.state.location)
     
     // starting to search for tweets
-    this.searchForTweets();
+    this.searchForVenues();
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -82,12 +82,14 @@ class App extends React.Component {
 
   searchForVenues() {
 
-    fetch('https://api.foursquare.com/v2/venues/explore?client_id=CLIENT_ID&client_secret=CLIENT_SECRET&v=20180323&limit=1&ll=40.7243,-74.0018&query=coffee')
-    .then(function() {
-        // Code for handling API response
+    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=10&ll=47.6038,-122.3301&query=coffee`)
+    .then(response => response.json())
+    .then(response => {
+
+      console.log(response.response)
     })
-    .catch(function() {
-        // Code for handling errors
+    .catch(error => {
+      console.error(error);
     });
 
     /*---------------------------------------------------------------*/
