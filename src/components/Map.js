@@ -29,17 +29,12 @@ class Map extends React.Component {
 
   renderMapToScreen(){
 
-
-
   // mapbox://styles/mapbox/dark-v9
-
-  // mapbox://styles/mapbox/navigation-guidance-day-v2
-  // mapbox://styles/mapbox/navigation-guidance-night-v2
 
     mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
     map = new mapboxgl.Map({
         container: document.getElementById('mapbox-container'),
-        style: 'mapbox://styles/mapbox/navigation-preview-night-v2',
+        style: 'mapbox://styles/mapbox/navigation-guidance-night-v2',
         center: ['-122.3301', '47.6038'],
         zoom: 13,
         hash: true 
