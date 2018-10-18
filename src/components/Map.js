@@ -33,7 +33,7 @@ class Map extends React.Component {
   navigator.geolocation.getCurrentPosition(function(position) {
 
     console.log(position.coords.latitude, position.coords.longitude)
-
+    
   });
 
     mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
@@ -45,12 +45,12 @@ class Map extends React.Component {
         hash: true 
     })
 
-    map.addControl(new mapboxgl.GeolocateControl({
-      positionOptions: {
-          enableHighAccuracy: true
-      },
-      trackUserLocation: true
-  }));
+  //   map.addControl(new mapboxgl.GeolocateControl({
+  //     positionOptions: {
+  //         enableHighAccuracy: true
+  //     },
+  //     trackUserLocation: true
+  // }));
 
   }
 
