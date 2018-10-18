@@ -101,9 +101,9 @@ class App extends React.Component {
     .then(response => {
 
       // response.response.groups[0].items - array of venues
-      const arrayOfVenues = response.response.groups[0].items;
+      // const arrayOfVenues = response.response.groups[0].items;
 
-      console.log(arrayOfVenues)
+      console.log(response.response.groups[0].items)
     })
     .catch(error => {
 
