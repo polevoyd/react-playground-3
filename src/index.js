@@ -6,6 +6,10 @@ import LocationInput from './components/LocationInput';
 import './index.css';
 import MapContainer from './components/MapContainer';
 
+/* ------------------------------------------------------------------------------------------- */
+//          getting a user location and setting up a map center
+/* ------------------------------------------------------------------------------------------- */
+
 // get user location
 let initialUserPosition = {};
 
@@ -14,6 +18,10 @@ navigator.geolocation.getCurrentPosition(position => {
   initialUserPosition.latitude = position.coords.latitude;
   initialUserPosition.longitude = position.coords.longitude;
 });
+
+/* ------------------------------------------------------------------------------------------- */
+//          Main component of an app
+/* ------------------------------------------------------------------------------------------- */
 
 class App extends React.Component {
 
@@ -25,7 +33,7 @@ class App extends React.Component {
 
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
-      location: 'Seattle',
+      location: '',
       locationLngLat: [initialUserPosition.latitude, initialUserPosition.longitude]
     }
 
@@ -34,8 +42,10 @@ class App extends React.Component {
   }
 
   /* ------------------------------------------------------------------------------------------- */
+  //        request a location by name and get back a lang and lat of that location on a map
+  /* ------------------------------------------------------------------------------------------- */
 
-  // request a location by name and get back a lang and lat of that location on a map
+  
   requestLocationGeocode(locationName) {
 
     // Building request and based on response create a map
