@@ -92,7 +92,7 @@ class App extends React.Component {
       // response.response.groups[0].items - array of venues
       const arrayOfVenues = response.response.groups[0].items;
 
-      console.log(venuesWithPhotos)
+      console.log(arrayOfVenues)
     })
     .catch(error => {
       console.error(error);
