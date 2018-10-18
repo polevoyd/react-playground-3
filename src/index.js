@@ -95,6 +95,7 @@ class App extends React.Component {
       console.log(arrayOfVenues)
     })
     .catch(error => {
+      
       console.error(error);
     });
 
