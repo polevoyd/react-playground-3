@@ -6,7 +6,14 @@ import LocationInput from './components/LocationInput';
 import './index.css';
 import MapContainer from './components/MapContainer';
 
+// get user location
+let initialUserPosition = {};
 
+navigator.geolocation.getCurrentPosition(position => {
+
+  initialUserPosition.latitude = position.coords.latitude;
+  initialUserPosition.longitude = position.coords.longitude;
+});
 
 class App extends React.Component {
 
@@ -19,7 +26,7 @@ class App extends React.Component {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
       location: 'Seattle',
-      locationLngLat: [-122.3301, 47.6038]
+      locationLngLat: [initialUserPosition.latitude, initialUserPosition.longitude]
     }
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);

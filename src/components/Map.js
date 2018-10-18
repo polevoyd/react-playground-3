@@ -30,11 +30,7 @@ class Map extends React.Component {
   renderMapToScreen(){
 
   // mapbox://styles/mapbox/dark-v9
-  navigator.geolocation.getCurrentPosition(function(position) {
-
-    console.log(position.coords.latitude, position.coords.longitude)
-    
-  });
+ 
 
     mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
     map = new mapboxgl.Map({
