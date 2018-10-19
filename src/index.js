@@ -46,19 +46,20 @@ class App extends React.Component {
 
   getUserLocation() {
 
-    const coordinates = navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition(position => {
 
-    return [position.coords.latitude, position.coords.longitude]
+      this.setState({
+        locationLngLat : [position.coords.latitude, position.coords.longitude] 
+      })
     })
+
   }
 
   componentDidMount() {
     
-    this.setState({
-      locationLngLat: this.getUserLocation()
-    })
-    // this.getUserLocation();
+    this.getUserLocation();
   }
+  
   /* ------------------------------------------------------------------------------------------- */
   //        request a location by name and get back a lang and lat of that location on a map
   /* ------------------------------------------------------------------------------------------- */
