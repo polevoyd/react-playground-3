@@ -16,7 +16,7 @@ import { rejects } from 'assert';
   let userLocation = []
   navigator.geolocation.getCurrentPosition(position => {
   
-    console.log([position.coords.latitude, position.coords.longitude])
+    // console.log([position.coords.latitude, position.coords.longitude])
     userLocation = [position.coords.latitude, position.coords.longitude]
     })
 
@@ -26,8 +26,6 @@ import { rejects } from 'assert';
 /* ------------------------------------------------------------------------------------------- */
 
 class App extends React.Component {
-
-
 
   constructor(props) {
 
@@ -46,11 +44,6 @@ class App extends React.Component {
     this.componentWillMount = this.componentWillMount.bind(this);
   }
 
-  componentWillMount() {
-
-    
-    
-  }
   /* ------------------------------------------------------------------------------------------- */
   //        request a location by name and get back a lang and lat of that location on a map
   /* ------------------------------------------------------------------------------------------- */
