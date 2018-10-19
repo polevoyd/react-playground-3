@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import LocationInput from './components/LocationInput';
 import './index.css';
 import MapContainer from './components/MapContainer';
-import { rejects } from 'assert';
 
 /* ------------------------------------------------------------------------------------------- */
 //          getting a user location and setting up a map center
@@ -111,28 +110,15 @@ class App extends React.Component {
     const amountToRequest = 5;
     let keywordToSearch = 'coffee';
 
-    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
+    const linkToFetch = `http://localhost:4000/tweets`;
+
+    fetch(linkToFetch)
     .then(response => response.json())
     .then(response => {
 
-      // response.response.groups[0].items - array of venues
-      // const arrayOfVenues = response.response.groups[0].items;
-      // https://foursquare.com/img/categories/food/default_64.png
+      console.log(response);
+  
 
-      const arrayOfVenues = response.response.groups[0].items.map( element => {
-
-        // Returning a venue object
-        return {
-
-          id: element.venue.id,
-          name : element.venue.name,
-          categoryName : element.venue.categories[0].name,
-          locationObj : element.venue.location,
-          categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
-        };
-      })
-
-      // console.log(arrayOfVenues)
     })
     .catch(error => console.error(error));
   }

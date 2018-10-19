@@ -36,3 +36,7 @@ html{
 .location-input button{
   width: 30vw;
 }
+
+.invisible-input {
+  display: none;
+}
