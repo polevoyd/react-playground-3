@@ -107,9 +107,6 @@ class App extends React.Component {
 
   searchForVenues() {
 
-    const amountToRequest = 5;
-    let keywordToSearch = 'coffee';
-
     const linkToFetch = `http://localhost:4000/tweets?lat=${this.state.locationLngLat[0]}&lng=${this.state.locationLngLat[1]}`;
 
     fetch(linkToFetch)
