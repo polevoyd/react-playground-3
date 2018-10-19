@@ -11,10 +11,14 @@ import { rejects } from 'assert';
 //          getting a user location and setting up a map center
 /* ------------------------------------------------------------------------------------------- */
 
-
-
-
-
+  
+  // get user location
+  let userLocation = []
+  navigator.geolocation.getCurrentPosition(position => {
+  
+    console.log([position.coords.latitude, position.coords.longitude])
+    userLocation = [position.coords.latitude, position.coords.longitude]
+    })
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -23,7 +27,8 @@ import { rejects } from 'assert';
 
 class App extends React.Component {
 
-  defaultUserLocation = 
+
+
   constructor(props) {
 
     super(props);
@@ -33,19 +38,18 @@ class App extends React.Component {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
       location: '',
-      locationLngLat: [initialUserPosition.latitude, initialUserPosition.longitude]
+      locationLngLat: userLocation
     }
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
+    this.componentWillMount = this.componentWillMount.bind(this);
   }
 
   componentWillMount() {
 
     
-    navigator.geolocation.getCurrentPosition(position => [position.coords.latitude, position.coords.longitude]);
-   
- 
+    
   }
   /* ------------------------------------------------------------------------------------------- */
   //        request a location by name and get back a lang and lat of that location on a map
@@ -74,14 +78,13 @@ class App extends React.Component {
   //          on submit - change location in a state after user clicked 'Submit'
   /* ------------------------------------------------------------------------------------------- */
 
-  async handleLocationSubmit(event) {
+  handleLocationSubmit(event) {
 
     event.preventDefault();
     this.requestLocationGeocode(this.state.location)
 
     // starting to search for venue
     this.searchForVenues();
-    
   }
 
   /* ------------------------------------------------------------------------------------------- */
