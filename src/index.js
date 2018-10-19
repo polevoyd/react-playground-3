@@ -114,36 +114,83 @@ class App extends React.Component {
     .then(response => response.json())
     .then(response => {
 
+
+      
       // response.response.groups[0].items - array of venues
       // const arrayOfVenues = response.response.groups[0].items;
       // https://foursquare.com/img/categories/food/default_64.png
 
-      const arrayOfVenues = response.response.groups[0].items.map( element => {
+      // const arrayOfVenues = response.response.groups[0].items.map( element => {
 
-        // Venue Object
-        let venueObject = {
+      //   // Venue Object
+      //   let venueObject = {
 
-          id: element.venue.id,
-          name : element.venue.name,
-          categoryName : element.venue.categories[0].name,
-          locationObj : element.venue.location,
-          venueDetails  : this.searchForVenueDetails(element.venue.id),
-          categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
+      //     id: element.venue.id,
+      //     name : element.venue.name,
+      //     categoryName : element.venue.categories[0].name,
+      //     locationObj : element.venue.location,
+      //     venueDetails  : this.searchForVenueDetails(element.venue.id),
+      //     categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
           
-        };
-        // after that we will
+      //   };
+      //   // after that we will
 
-        return venueObject;
-      })
+      //   return venueObject;
+      // })
 
       // console.log(arrayOfVenues)
     })
     .catch(error => console.error(error));
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  //   const amountToRequest = 5;
+  //   let keywordToSearch = 'coffee';
+
+  //   fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
+  //   .then(response => response.json())
+  //   .then(response => {
+
+  //     // response.response.groups[0].items - array of venues
+  //     // const arrayOfVenues = response.response.groups[0].items;
+  //     // https://foursquare.com/img/categories/food/default_64.png
+
+  //     const arrayOfVenues = response.response.groups[0].items.map( element => {
+
+  //       // Venue Object
+  //       let venueObject = {
+
+  //         id: element.venue.id,
+  //         name : element.venue.name,
+  //         categoryName : element.venue.categories[0].name,
+  //         locationObj : element.venue.location,
+  //         venueDetails  : this.searchForVenueDetails(element.venue.id),
+  //         categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
+          
+  //       };
+  //       // after that we will
+
+  //       return venueObject;
+  //     })
+
+  //     // console.log(arrayOfVenues)
+  //   })
+  //   .catch(error => console.error(error));
+  // }
   
 
   /* ------------------------------------------------------------------------------------------- */
-  //           search fo a details of venue by ID
+  //           search for a details of venue by ID
   /* ------------------------------------------------------------------------------------------- */
 
 
@@ -151,11 +198,11 @@ class App extends React.Component {
 
     // This function runs for each venue
 
-    let venuePhotoLink = `https://api.foursquare.com/v2/venues/${venueID}/photos?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323`;
-    let venueDetailsLink = `https://api.foursquare.com/v2/venues/${venueID}?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323`
+    // let venuePhotoLink = `https://api.foursquare.com/v2/venues/${venueID}/photos?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323`;
+    // let venueDetailsLink = `https://api.foursquare.com/v2/venues/${venueID}?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}`
 
 
-    fetch(venueDetailsLink)
+    fetch('link')
     .then(response => response.json())
     .then(response => {
 
