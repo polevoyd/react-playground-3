@@ -29,14 +29,25 @@ class Map extends React.Component {
 
   renderMapToScreen(){
 
+  // mapbox://styles/mapbox/dark-v9
+ 
+
     mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
     map = new mapboxgl.Map({
         container: document.getElementById('mapbox-container'),
-        style: 'mapbox://styles/mapbox/streets-v9',
+        style: 'mapbox://styles/mapbox/navigation-guidance-night-v2',
         center: ['-122.3301', '47.6038'],
         zoom: 13,
         hash: true 
-    });
+    })
+
+  //   map.addControl(new mapboxgl.GeolocateControl({
+  //     positionOptions: {
+  //         enableHighAccuracy: true
+  //     },
+  //     trackUserLocation: true
+  // }));
+
   }
 
   /* ------------------------------------------------------------------------------------------- */

@@ -5,10 +5,32 @@ import ReactDOM from 'react-dom';
 import LocationInput from './components/LocationInput';
 import './index.css';
 import MapContainer from './components/MapContainer';
+import { rejects } from 'assert';
+
+/* ------------------------------------------------------------------------------------------- */
+//          getting a user location and setting up a map center
+/* ------------------------------------------------------------------------------------------- */
 
 
-let Twitter = require('twitter');
+    // get user location
+    // let userLocation = []
+    // navigator.geolocation.getCurrentPosition(position => {
+  
+    // // console.log([position.coords.latitude, position.coords.longitude])
+    // return [position.coords.latitude, position.coords.longitude]
+    // })
 
+    let userLocation = [];
+    navigator.geolocation.getCurrentPosition(position => {
+
+      userLocation = [position.coords.latitude, position.coords.longitude]
+    });
+
+
+
+/* ------------------------------------------------------------------------------------------- */
+//          Main component of an app
+/* ------------------------------------------------------------------------------------------- */
 
 class App extends React.Component {
 
@@ -20,18 +42,20 @@ class App extends React.Component {
 
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
-      location: 'Seattle',
-      locationLngLat: []
+      location: '',
+      locationLngLat: [47.6151, -122.3447]
     }
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
+  
 
   /* ------------------------------------------------------------------------------------------- */
+  //        request a location by name and get back a lang and lat of that location on a map
+  /* ------------------------------------------------------------------------------------------- */
 
-  // request a location by name and get back a lang and lat of that location on a map
-  requestLocationGeocode(locationName) {
+  requestLocationGeocode() {
 
     // Building request and based on response create a map
     const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.location}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
@@ -57,15 +81,10 @@ class App extends React.Component {
   handleLocationSubmit(event) {
 
     event.preventDefault();
-
-    // TODO: checking if input is actually a location
-    // by sending request and get response
-    // if yes, then change state.location to a new one
-
     this.requestLocationGeocode(this.state.location)
-    
-    // starting to search for tweets
-    this.searchForTweets();
+
+    // starting to search for venue
+    this.searchForVenues();
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -73,8 +92,12 @@ class App extends React.Component {
   /* ------------------------------------------------------------------------------------------- */
 
   handleLocationChange(event) {
+
+    // console.log(userLocation)
+    
     this.setState({
-      location: event.target.value
+
+      location: event.target.value,
     })
   }
 
@@ -82,51 +105,46 @@ class App extends React.Component {
   //           on submit - search for a tweets
   /* ------------------------------------------------------------------------------------------- */
 
-  searchForTweets(locationToSearch) {
+  searchForVenues() {
 
-    const request = require('request');
-    const twitter_api = 'https://api.twitter.com/1.1/search/tweets.json?q=sobaka';
-    const bearer_token = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
+    const amountToRequest = 100;
+    let keywordToSearch = 'coffee';
 
-    
-    request({ url: twitter_api,
-        method:'GET',
-        // qs:{"screen_name":"stadolf"},
-        // json:true,
-        headers: {
-            "Authorization": "Bearer " + bearer_token
-        }
-    
-    }, function(err, resp, body) {
-    
-        console.dir(body);
-    
-    });
+    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
+    .then(response => response.json())
+    .then(response => {
 
+      // response.response.groups[0].items - array of venues
+      // const arrayOfVenues = response.response.groups[0].items;
+      // https://foursquare.com/img/categories/food/default_64.png
 
+      const arrayOfVenues = response.response.groups[0].items.map( element => {
 
-    
-        // let client = new Twitter({
+        // Venue Object
+        let venueObject = {
+          name : element.venue.name,
+          categoryName : element.venue.categories[0].name,
+          locationObj : element.venue.location,
+          categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
+        };
+        // after that we will
 
-    //   consumer_key: config.REACT_APP_TWITTER_API_ACCESS_TOKEN,
-    //   consumer_secret: config.REACT_APP_TWITTER_API_ACCESS_TOKEN_SECRET,
-    //   bearer_token: config.REACT_APP_TWITTER_BEARER_TOKEN_OBJECT
-    // })
+        return venueObject;
+      })
 
-    // client.get('favorites/list', function(error, tweets, response) {
-
-    //   if (error) throw error;
-
-    //   console.log(tweets);
-    //   console.log(response);
-    // })
-
+      console.log(arrayOfVenues)
+    })
+    .catch(error => console.error(error));
 
     /*---------------------------------------------------------------*/
     /*            This is works with a proxy but super slow          */
+    /*                        TWITTER API                            */
     /*---------------------------------------------------------------*/
 
-    // const twitter_api_proxy = 'https://cors-anywhere.herokuapp.com/' + 'https://api.twitter.com/1.1/search/tweets.json?q=sobaka';
+    // const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?q=sobaka`;
+
+    // geocode = long, lat, radius 
+    // const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?geocode=37.781157,-122.398720,1mi`;
     // const bearer_token_proxy = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
     // fetch(twitter_api_proxy, {
     //   headers: {
@@ -135,11 +153,9 @@ class App extends React.Component {
     // })
     // .then(response => response.json())
     // .then(response => {
-    //   console.log(response)
+      
+    //   console.log(response);
     // })
-
-
-
   }
   
 
