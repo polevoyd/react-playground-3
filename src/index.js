@@ -64,7 +64,8 @@ class App extends React.Component {
           location: results.features[0].place_name,
           locationLngLat: results.features[0].center
         })
-      })
+      });
+      // .then(this.searchForTweets());
   }
 
   /* ------------------------------------------------------------------------------------------- */
