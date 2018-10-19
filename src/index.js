@@ -107,41 +107,34 @@ class App extends React.Component {
 
   searchForVenues() {
 
-    const amountToRequest = 5;
-    let keywordToSearch = 'coffee';
-
-    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
+    fetch(link)
     .then(response => response.json())
     .then(response => {
 
 
-      
-      // response.response.groups[0].items - array of venues
-      // const arrayOfVenues = response.response.groups[0].items;
-      // https://foursquare.com/img/categories/food/default_64.png
-
-      // const arrayOfVenues = response.response.groups[0].items.map( element => {
-
-      //   // Venue Object
-      //   let venueObject = {
-
-      //     id: element.venue.id,
-      //     name : element.venue.name,
-      //     categoryName : element.venue.categories[0].name,
-      //     locationObj : element.venue.location,
-      //     venueDetails  : this.searchForVenueDetails(element.venue.id),
-      //     categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
-          
-      //   };
-      //   // after that we will
-
-      //   return venueObject;
-      // })
-
-      // console.log(arrayOfVenues)
     })
     .catch(error => console.error(error));
-  }
+  
+
+
+    .set('Authorization', `Bearer ${process.env.YELP_API_KEY}`)
+    .then(result => {
+      const yelpSummaries = result.body.businesses.map( business => new Business(business));
+      response.send(yelpSummaries);
+    })
+    .catch(error => handleError(error, response));
+
+    const link = `https://api.yelp.com/v3/businesses/search?location=${request.query.data.search_query}`;
+
+
+    fetch('URL_GOES_HERE', { 
+      method: 'post', 
+      headers: new Headers({
+        'Authorization': 'Basic '+btoa('username:password'), 
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }), 
+      body: 'A=1&B=2'
+    });
 
 
 
@@ -150,43 +143,7 @@ class App extends React.Component {
 
 
 
-
-
-
-
-  //   const amountToRequest = 5;
-  //   let keywordToSearch = 'coffee';
-
-  //   fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
-  //   .then(response => response.json())
-  //   .then(response => {
-
-  //     // response.response.groups[0].items - array of venues
-  //     // const arrayOfVenues = response.response.groups[0].items;
-  //     // https://foursquare.com/img/categories/food/default_64.png
-
-  //     const arrayOfVenues = response.response.groups[0].items.map( element => {
-
-  //       // Venue Object
-  //       let venueObject = {
-
-  //         id: element.venue.id,
-  //         name : element.venue.name,
-  //         categoryName : element.venue.categories[0].name,
-  //         locationObj : element.venue.location,
-  //         venueDetails  : this.searchForVenueDetails(element.venue.id),
-  //         categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
-          
-  //       };
-  //       // after that we will
-
-  //       return venueObject;
-  //     })
-
-  //     // console.log(arrayOfVenues)
-  //   })
-  //   .catch(error => console.error(error));
-  // }
+  
   
 
   /* ------------------------------------------------------------------------------------------- */
