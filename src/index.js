@@ -43,7 +43,7 @@ class App extends React.Component {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
       location: '',
-      locationLngLat: [] // [47.6151, -122.3447]
+      locationLngLat: [47.6151, -122.3447]
     }
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
@@ -93,12 +93,12 @@ class App extends React.Component {
 
   handleLocationChange(event) {
 
-    console.log(userLocation)
+    // console.log(userLocation)
     
-  
-    this.setState({ location: event.target.value, locationLngLat: userLocation })
-   
-    
+    this.setState({
+
+      location: event.target.value,
+    })
   }
 
   /* ------------------------------------------------------------------------------------------- */
