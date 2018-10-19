@@ -107,7 +107,7 @@ class App extends React.Component {
 
   searchForVenues() {
 
-    const amountToRequest = 100;
+    const amountToRequest = 1;
     let keywordToSearch = 'coffee';
 
     fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
@@ -150,9 +150,11 @@ class App extends React.Component {
 
     const amountToRequest = 100;
     let keywordToSearch = 'coffee';
-    let linkToFetch = `https://api.foursquare.com/v2/venues/${venueID}/photos?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323`;
+    let venuePhotoLink = `https://api.foursquare.com/v2/venues/${venueID}/photos?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323`;
+    let venueDetailsLink = `https://api.foursquare.com/v2/venues/${venueID}?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323`
 
-    fetch(linkToFetch)
+
+    fetch(venuePhotoLink)
     .then(response => response.json())
     .then(response => {
 
