@@ -18,7 +18,7 @@ import { rejects } from 'assert';
   
     // console.log([position.coords.latitude, position.coords.longitude])
     userLocation = [position.coords.latitude, position.coords.longitude]
-    })
+  })
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -41,7 +41,6 @@ class App extends React.Component {
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
-    this.componentWillMount = this.componentWillMount.bind(this);
   }
 
   /* ------------------------------------------------------------------------------------------- */
