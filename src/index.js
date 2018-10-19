@@ -89,11 +89,10 @@ class App extends React.Component {
 
   handleLocationChange(event) {
 
-    console.log(userLocation
+    console.log(userLocation)
     
-    )
     this.setState({
-      
+
       location: event.target.value,
     })
   }
