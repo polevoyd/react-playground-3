@@ -13,12 +13,15 @@ import { rejects } from 'assert';
 
 
     // get user location
-    let userLocation = []
-    navigator.geolocation.getCurrentPosition(position => {
+    // let userLocation = []
+    // navigator.geolocation.getCurrentPosition(position => {
   
-    // console.log([position.coords.latitude, position.coords.longitude])
-    return [position.coords.latitude, position.coords.longitude]
-    })
+    // // console.log([position.coords.latitude, position.coords.longitude])
+    // return [position.coords.latitude, position.coords.longitude]
+    // })
+
+    const userLocation = navigator.geolocation.getCurrentPosition(position => [position.coords.latitude, position.coords.longitude]);
+
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -36,35 +39,19 @@ class App extends React.Component {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
       location: '',
-      locationLngLat: userLocation
+      locationLngLat: [] // [47.6151, -122.3447]
     }
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
-    this.getUserLocation = this.getUserLocation.bind(this);
-  }
-
-  getUserLocation() {
-
-    navigator.geolocation.getCurrentPosition(position => {
-
-      this.setState({
-        locationLngLat : [position.coords.latitude, position.coords.longitude] 
-      })
-    })
-
-  }
-
-  componentDidMount() {
-    
-    this.getUserLocation();
   }
   
+
   /* ------------------------------------------------------------------------------------------- */
   //        request a location by name and get back a lang and lat of that location on a map
   /* ------------------------------------------------------------------------------------------- */
 
-  requestLocationGeocode(locationName) {
+  requestLocationGeocode() {
 
     // Building request and based on response create a map
     const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.location}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
@@ -101,8 +88,13 @@ class App extends React.Component {
   /* ------------------------------------------------------------------------------------------- */
 
   handleLocationChange(event) {
+
+    console.log(userLocation
+    
+    )
     this.setState({
-      location: event.target.value
+      
+      location: event.target.value,
     })
   }
 
