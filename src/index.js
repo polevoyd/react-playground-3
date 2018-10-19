@@ -145,19 +145,18 @@ class App extends React.Component {
   //           search fo a details of venue by ID
   /* ------------------------------------------------------------------------------------------- */
 
+
   searchForVenueDetails(venueID) {
 
     const amountToRequest = 100;
     let keywordToSearch = 'coffee';
+    let linkToFetch = `https://api.foursquare.com/v2/venues/${venueID}/photos?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323`;
 
-    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
+    fetch(linkToFetch)
     .then(response => response.json())
     .then(response => {
 
-      // response.response.groups[0].items - array of venues
-      // const arrayOfVenues = response.response.groups[0].items;
-      // https://foursquare.com/img/categories/food/default_64.png
-
+      console.log(response)
 
   
     })
