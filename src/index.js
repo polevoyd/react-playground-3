@@ -105,9 +105,10 @@ class App extends React.Component {
   //           on submit - search for a tweets
   /* ------------------------------------------------------------------------------------------- */
 
+
   searchForVenues() {
 
-    const amountToRequest = 100;
+    const amountToRequest = 5;
     let keywordToSearch = 'coffee';
 
     fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
@@ -120,45 +121,25 @@ class App extends React.Component {
 
       const arrayOfVenues = response.response.groups[0].items.map( element => {
 
-        // Venue Object
-        let venueObject = {
+        // Returning a venue object
+        return {
+
+          id: element.venue.id,
           name : element.venue.name,
           categoryName : element.venue.categories[0].name,
           locationObj : element.venue.location,
           categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
         };
-        // after that we will
-
-        return venueObject;
       })
 
-      console.log(arrayOfVenues)
+      // console.log(arrayOfVenues)
     })
     .catch(error => console.error(error));
-
-    /*---------------------------------------------------------------*/
-    /*            This is works with a proxy but super slow          */
-    /*                        TWITTER API                            */
-    /*---------------------------------------------------------------*/
-
-    // const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?q=sobaka`;
-
-    // geocode = long, lat, radius 
-    // const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?geocode=37.781157,-122.398720,1mi`;
-    // const bearer_token_proxy = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
-    // fetch(twitter_api_proxy, {
-    //   headers: {
-    //     "Authorization": "Bearer " + bearer_token_proxy
-    //   }
-    // })
-    // .then(response => response.json())
-    // .then(response => {
-      
-    //   console.log(response);
-    // })
   }
   
 
+  /* ------------------------------------------------------------------------------------------- */
+  //        Entry point
   /* ------------------------------------------------------------------------------------------- */
 
   // Entry point
