@@ -120,20 +120,22 @@ class App extends React.Component {
 
       const arrayOfVenues = response.response.groups[0].items.map( element => {
 
-
         // Venue Object
         let venueObject = {
+
+          id: element.venue.id,
           name : element.venue.name,
           categoryName : element.venue.categories[0].name,
           locationObj : element.venue.location,
-          categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
+          categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`,
+          venueDetails  : this.searchForVenueDetails(element.venue.id)
         };
         // after that we will
 
         return venueObject;
       })
 
-      console.log(arrayOfVenues)
+      // console.log(arrayOfVenues)
     })
     .catch(error => console.error(error));
   }
