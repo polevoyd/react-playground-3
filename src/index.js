@@ -72,19 +72,10 @@ class App extends React.Component {
   async handleLocationSubmit(event) {
 
     event.preventDefault();
-    let promise = new Promise((resolve, rejects) => {
-      setTimeout(() => resolve(this.requestLocationGeocode(this.state.location)), 5000);
-    })
-
-
-    await this.searchForVenues();
-
-
-
-    // this.requestLocationGeocode(this.state.location)
+    this.requestLocationGeocode(this.state.location)
 
     // starting to search for venue
-    // this.searchForVenues();
+    this.searchForVenues();
     
   }
 
