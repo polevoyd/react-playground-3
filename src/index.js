@@ -135,6 +135,7 @@ class App extends React.Component {
       console.log(arrayOfVenues)
     })
     .catch(error => console.error(error));
+  
 
     /*---------------------------------------------------------------*/
     /*            This is works with a proxy but super slow          */
@@ -158,6 +159,44 @@ class App extends React.Component {
     // })
   }
   
+
+  /* ------------------------------------------------------------------------------------------- */
+  //           search fo a details of venue by ID
+  /* ------------------------------------------------------------------------------------------- */
+
+  searchForVenueDetails() {
+
+    const amountToRequest = 100;
+    let keywordToSearch = 'coffee';
+
+    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
+    .then(response => response.json())
+    .then(response => {
+
+      // response.response.groups[0].items - array of venues
+      // const arrayOfVenues = response.response.groups[0].items;
+      // https://foursquare.com/img/categories/food/default_64.png
+
+      const arrayOfVenues = response.response.groups[0].items.map( element => {
+
+        // Venue Object
+        let venueObject = {
+          name : element.venue.name,
+          categoryName : element.venue.categories[0].name,
+          locationObj : element.venue.location,
+          categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
+        };
+        // after that we will
+
+        return venueObject;
+      })
+
+      console.log(arrayOfVenues)
+    })
+    .catch(error => console.error(error));
+  
+
+  }
 
   /* ------------------------------------------------------------------------------------------- */
 
