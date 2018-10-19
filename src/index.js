@@ -120,6 +120,7 @@ class App extends React.Component {
 
       const arrayOfVenues = response.response.groups[0].items.map( element => {
 
+
         // Venue Object
         let venueObject = {
           name : element.venue.name,
@@ -135,28 +136,6 @@ class App extends React.Component {
       console.log(arrayOfVenues)
     })
     .catch(error => console.error(error));
-  
-
-    /*---------------------------------------------------------------*/
-    /*            This is works with a proxy but super slow          */
-    /*                        TWITTER API                            */
-    /*---------------------------------------------------------------*/
-
-    // const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?q=sobaka`;
-
-    // geocode = long, lat, radius 
-    // const twitter_api_proxy = `https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?geocode=37.781157,-122.398720,1mi`;
-    // const bearer_token_proxy = config.REACT_APP_TWITTER_BEARER_TOKEN_TEXT;
-    // fetch(twitter_api_proxy, {
-    //   headers: {
-    //     "Authorization": "Bearer " + bearer_token_proxy
-    //   }
-    // })
-    // .then(response => response.json())
-    // .then(response => {
-      
-    //   console.log(response);
-    // })
   }
   
 
