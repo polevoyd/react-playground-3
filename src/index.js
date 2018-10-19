@@ -107,7 +107,7 @@ class App extends React.Component {
 
   searchForVenues() {
 
-    const amountToRequest = 1;
+    const amountToRequest = 5;
     let keywordToSearch = 'coffee';
 
     fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
@@ -127,8 +127,9 @@ class App extends React.Component {
           name : element.venue.name,
           categoryName : element.venue.categories[0].name,
           locationObj : element.venue.location,
-          categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`,
-          venueDetails  : this.searchForVenueDetails(element.venue.id)
+          venueDetails  : this.searchForVenueDetails(element.venue.id),
+          categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
+          
         };
         // after that we will
 
@@ -148,13 +149,13 @@ class App extends React.Component {
 
   searchForVenueDetails(venueID) {
 
-    const amountToRequest = 100;
-    let keywordToSearch = 'coffee';
+    // This function runs for each venue
+
     let venuePhotoLink = `https://api.foursquare.com/v2/venues/${venueID}/photos?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323`;
     let venueDetailsLink = `https://api.foursquare.com/v2/venues/${venueID}?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323`
 
 
-    fetch(venuePhotoLink)
+    fetch(venueDetailsLink)
     .then(response => response.json())
     .then(response => {
 
