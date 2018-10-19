@@ -11,14 +11,11 @@ import { rejects } from 'assert';
 //          getting a user location and setting up a map center
 /* ------------------------------------------------------------------------------------------- */
 
-// get user location
-let initialUserPosition = {};
 
-navigator.geolocation.getCurrentPosition(position => {
 
-  initialUserPosition.latitude = position.coords.latitude;
-  initialUserPosition.longitude = position.coords.longitude;
-});
+
+
+
 
 /* ------------------------------------------------------------------------------------------- */
 //          Main component of an app
@@ -26,6 +23,7 @@ navigator.geolocation.getCurrentPosition(position => {
 
 class App extends React.Component {
 
+  defaultUserLocation = 
   constructor(props) {
 
     super(props);
@@ -42,6 +40,13 @@ class App extends React.Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
+  componentWillMount() {
+
+    
+    navigator.geolocation.getCurrentPosition(position => [position.coords.latitude, position.coords.longitude]);
+   
+ 
+  }
   /* ------------------------------------------------------------------------------------------- */
   //        request a location by name and get back a lang and lat of that location on a map
   /* ------------------------------------------------------------------------------------------- */
