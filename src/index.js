@@ -20,7 +20,11 @@ import { rejects } from 'assert';
     // return [position.coords.latitude, position.coords.longitude]
     // })
 
-    const userLocation = navigator.geolocation.getCurrentPosition(position => [position.coords.latitude, position.coords.longitude]);
+    let userLocation = [];
+    navigator.geolocation.getCurrentPosition(position => {
+
+      userLocation = [position.coords.latitude, position.coords.longitude]
+    });
 
 
 
@@ -91,10 +95,10 @@ class App extends React.Component {
 
     console.log(userLocation)
     
-    this.setState({
-
-      location: event.target.value,
-    })
+  
+    this.setState({ location: event.target.value, locationLngLat: userLocation })
+   
+    
   }
 
   /* ------------------------------------------------------------------------------------------- */
