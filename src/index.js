@@ -105,12 +105,12 @@ class App extends React.Component {
   //           on submit - search for a tweets
   /* ------------------------------------------------------------------------------------------- */
 
-  searchForVenues() {
 
+  searchForVenues() {
 
     const amountToRequest = 5;
     let keywordToSearch = 'coffee';
-
+    
     fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
     .then(response => response.json())
     .then(response => {
