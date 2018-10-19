@@ -102,7 +102,7 @@ class App extends React.Component {
 
   searchForTweets() {
 
-    const linkToFetch = `http://localhost:4000/tweets?lat=${this.state.locationLngLat[0]}&lng=${this.state.locationLngLat[1]}`;
+    const linkToFetch = `http://localhost:4000/tweets?lat=${this.state.locationLngLat[1]}&lng=${this.state.locationLngLat[0]}`;
 
     fetch(linkToFetch)
     .then(response => response.json())
