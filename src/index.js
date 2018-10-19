@@ -11,14 +11,14 @@ import { rejects } from 'assert';
 //          getting a user location and setting up a map center
 /* ------------------------------------------------------------------------------------------- */
 
-  
-  // get user location
-  let userLocation = []
-  navigator.geolocation.getCurrentPosition(position => {
+
+    // get user location
+    let userLocation = []
+    navigator.geolocation.getCurrentPosition(position => {
   
     // console.log([position.coords.latitude, position.coords.longitude])
-    userLocation = [position.coords.latitude, position.coords.longitude]
-  })
+    return [position.coords.latitude, position.coords.longitude]
+    })
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -41,8 +41,24 @@ class App extends React.Component {
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
+    this.getUserLocation = this.getUserLocation.bind(this);
   }
 
+  getUserLocation() {
+
+    const coordinates = navigator.geolocation.getCurrentPosition(position => {
+
+    return [position.coords.latitude, position.coords.longitude]
+    })
+  }
+
+  componentDidMount() {
+    
+    this.setState({
+      locationLngLat: this.getUserLocation()
+    })
+    // this.getUserLocation();
+  }
   /* ------------------------------------------------------------------------------------------- */
   //        request a location by name and get back a lang and lat of that location on a map
   /* ------------------------------------------------------------------------------------------- */
