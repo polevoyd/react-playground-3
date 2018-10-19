@@ -12,12 +12,6 @@ import MapContainer from './components/MapContainer';
 
 
     // get user location
-    // let userLocation = []
-    // navigator.geolocation.getCurrentPosition(position => {
-  
-    // // console.log([position.coords.latitude, position.coords.longitude])
-    // return [position.coords.latitude, position.coords.longitude]
-    // })
 
     let userLocation = [];
     navigator.geolocation.getCurrentPosition(position => {
@@ -83,7 +77,7 @@ class App extends React.Component {
     this.requestLocationGeocode(this.state.location)
 
     // starting to search for venue
-    this.searchForVenues();
+    this.searchForTweets();
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -105,7 +99,7 @@ class App extends React.Component {
   /* ------------------------------------------------------------------------------------------- */
 
 
-  searchForVenues() {
+  searchForTweets() {
 
     const linkToFetch = `http://localhost:4000/tweets?lat=${this.state.locationLngLat[0]}&lng=${this.state.locationLngLat[1]}`;
 
