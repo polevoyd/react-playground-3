@@ -164,7 +164,7 @@ class App extends React.Component {
   //           search fo a details of venue by ID
   /* ------------------------------------------------------------------------------------------- */
 
-  searchForVenueDetails() {
+  searchForVenueDetails(venueID) {
 
     const amountToRequest = 100;
     let keywordToSearch = 'coffee';
@@ -177,21 +177,8 @@ class App extends React.Component {
       // const arrayOfVenues = response.response.groups[0].items;
       // https://foursquare.com/img/categories/food/default_64.png
 
-      const arrayOfVenues = response.response.groups[0].items.map( element => {
 
-        // Venue Object
-        let venueObject = {
-          name : element.venue.name,
-          categoryName : element.venue.categories[0].name,
-          locationObj : element.venue.location,
-          categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
-        };
-        // after that we will
-
-        return venueObject;
-      })
-
-      console.log(arrayOfVenues)
+  
     })
     .catch(error => console.error(error));
   
