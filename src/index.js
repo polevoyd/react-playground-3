@@ -110,7 +110,7 @@ class App extends React.Component {
 
     const amountToRequest = 5;
     let keywordToSearch = 'coffee';
-    
+
     fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${config.REACT_APP_FOURSQUARE_CLIENT_ID}&client_secret=${config.REACT_APP_FOURSQUARE_CLIENT_SECRET}&v=20180323&limit=${amountToRequest}&ll=${this.state.locationLngLat[1]},${this.state.locationLngLat[0]}&query=${keywordToSearch}`)
     .then(response => response.json())
     .then(response => {
@@ -121,20 +121,15 @@ class App extends React.Component {
 
       const arrayOfVenues = response.response.groups[0].items.map( element => {
 
-        // Venue Object
-        let venueObject = {
+        // Returning a venue object
+        return {
 
           id: element.venue.id,
           name : element.venue.name,
           categoryName : element.venue.categories[0].name,
           locationObj : element.venue.location,
-          venueDetails  : this.searchForVenueDetails(element.venue.id),
           categoryPicture : `${element.venue.categories[0].icon.prefix}64${element.venue.categories[0].icon.suffix}`
-          
         };
-        // after that we will
-        // console.log(venueObject)
-        return venueObject;
       })
 
       // console.log(arrayOfVenues)
