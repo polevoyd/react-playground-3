@@ -108,6 +108,7 @@ class App extends React.Component {
     .then(response => response.json())
     .then(response => {
 
+      // Array of tweets in that area
       console.log(response);
   
 
