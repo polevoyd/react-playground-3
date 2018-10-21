@@ -6,24 +6,6 @@ import LocationInput from './components/LocationInput';
 import './index.css';
 import MapContainer from './components/MapContainer';
 
-/* ------------------------------------------------------------------------------------------- */
-//          getting a user location and setting up a map center
-/* ------------------------------------------------------------------------------------------- */
-
-
-    // get user location
-
-    let userLocation = [];
-    navigator.geolocation.getCurrentPosition(position => {
-
-      
-      userLocation = [position.coords.latitude, position.coords.longitude]
-      console.log(userLocation)
-      
-    });
-
-    console.log(userLocation)
-
 
 /* ------------------------------------------------------------------------------------------- */
 //          Main component of an app
@@ -47,6 +29,28 @@ class App extends React.Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
   
+
+/* ------------------------------------------------------------------------------------------- */
+//          getting a user location and setting up a map center
+/* ------------------------------------------------------------------------------------------- */
+
+getCurrentUserLocation = () => {
+
+
+  let userLocation = [];
+    navigator.geolocation.getCurrentPosition(position => {
+
+      
+      userLocation = [position.coords.latitude, position.coords.longitude]
+      
+      
+    });
+
+    console.log(userLocation)
+
+
+}
+    
 
   /* ------------------------------------------------------------------------------------------- */
   //        request a location by name and get back a lang and lat of that location on a map
