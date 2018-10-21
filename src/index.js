@@ -16,9 +16,13 @@ import MapContainer from './components/MapContainer';
     let userLocation = [];
     navigator.geolocation.getCurrentPosition(position => {
 
+      
       userLocation = [position.coords.latitude, position.coords.longitude]
+      console.log(userLocation)
+      
     });
 
+    console.log(userLocation)
 
 
 /* ------------------------------------------------------------------------------------------- */
