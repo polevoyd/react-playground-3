@@ -40,7 +40,7 @@ class App extends React.Component {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
       location: '',
-      locationLngLat: [-122.3447, 47.6151]
+      locationLngLat: [] // [-122.3447, 47.6151]
     }
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
