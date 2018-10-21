@@ -22,29 +22,36 @@ class App extends React.Component {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
       location: '',
-      locationLngLat: [] // [-122.3447, 47.6151]
+      locationLngLat: this.getCoordinatesFromURL() // [-122.3447, 47.6151]
     }
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
+
 componentDidMount() {
 
-  this.getCoordinatesFromURL();
+  window.addEventListener("hashchange", this.getCoordinatesFromURL, false);
 }
+
+componentWillUnmount() {
+
+  // window.addEventListener("hashchange", this.getCoordinatesFromURL, false);
+}
+
 /* ------------------------------------------------------------------------------------------- */
 //          getting a user location and setting up a map center
 /* ------------------------------------------------------------------------------------------- */
 
-getCoordinatesFromURL = () => {
+  getCoordinatesFromURL = () => {
+  
+    return window.location.hash.split('/').splice(1, 2).map( element => parseFloat(element));
+  
+  }
 
-  console.log(window.location)
-    
-      
-    
-}
-    
+
+
 
   /* ------------------------------------------------------------------------------------------- */
   //        request a location by name and get back a lang and lat of that location on a map
@@ -134,6 +141,7 @@ getCoordinatesFromURL = () => {
     )
   }
 }
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
