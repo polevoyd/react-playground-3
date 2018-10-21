@@ -29,29 +29,20 @@ class App extends React.Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
+  componentDidMount() {
 
-componentDidMount() {
-
-  window.addEventListener("hashchange", this.getCoordinatesFromURL, false);
-}
-
-componentWillUnmount() {
-
-  // window.addEventListener("hashchange", this.getCoordinatesFromURL, false);
-}
+    this.getCoordinatesFromURL();
+  }
 
 /* ------------------------------------------------------------------------------------------- */
-//          getting a user location and setting up a map center
+//          getting a user location from a URL
 /* ------------------------------------------------------------------------------------------- */
 
   getCoordinatesFromURL = () => {
-  
+
     return window.location.hash.split('/').splice(1, 2).map( element => parseFloat(element));
-  
+
   }
-
-
-
 
   /* ------------------------------------------------------------------------------------------- */
   //        request a location by name and get back a lang and lat of that location on a map
