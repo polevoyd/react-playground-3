@@ -110,6 +110,13 @@ class App extends React.Component {
 
       // Array of tweets in that area
       console.log(response);
+
+      // need to filter only ones with a geo points
+
+      const pointsToShow = response.filter( element => {
+
+        return element.geo;
+      })
   
 
     })
@@ -121,7 +128,7 @@ class App extends React.Component {
   //        Entry point
   /* ------------------------------------------------------------------------------------------- */
 
-  // Entry point
+  
   render() {
 
     return (
