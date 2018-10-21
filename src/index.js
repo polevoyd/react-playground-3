@@ -111,12 +111,20 @@ class App extends React.Component {
       // Array of tweets in that area
       console.log(response);
 
+      let arrayOfTweets = response;
+
+      // Filter on a request side?
+      
       // need to filter only ones with a geo points
+      console.log('================================================')
 
-      const pointsToShow = response.filter( element => {
+      const newArray = arrayOfTweets.filter( element => {
 
-        return element.geo;
+        return (element.geo);
       })
+
+      console.log(newArray);
+      
   
 
     })
