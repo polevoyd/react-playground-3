@@ -28,27 +28,21 @@ class App extends React.Component {
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
-  
 
+componentDidMount() {
+
+  this.getCoordinatesFromURL();
+}
 /* ------------------------------------------------------------------------------------------- */
 //          getting a user location and setting up a map center
 /* ------------------------------------------------------------------------------------------- */
 
-getCurrentUserLocation = () => {
+getCoordinatesFromURL = () => {
 
-
-  let userLocation = [];
-    navigator.geolocation.getCurrentPosition(position => {
-
+  console.log(window.location)
+    
       
-      userLocation = [position.coords.latitude, position.coords.longitude]
-      
-      
-    });
-
-    console.log(userLocation)
-
-
+    
 }
     
 
