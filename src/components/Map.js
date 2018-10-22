@@ -67,14 +67,18 @@ class Map extends React.Component {
     mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
     map = new mapboxgl.Map({
         container: document.getElementById('mapbox-container'),
-        style: 'mapbox://styles/mapbox/navigation-guidance-night-v2',
+        style: 'mapbox://styles/mapbox/dark-v9',
         center: ['-122.3301', '47.6038'],
-        zoom: 13,
-        hash: true 
+        zoom: 12,
+        hash: false,
+        minZoom: 11,
+        maxZoom: 15,
+        interactive: true
     })
 
     // Listener to change state depending on a map center
-    map.on('mouseup', this.props.handleCenterChange);
+    // Map starting to lag on with a listener - so turning it off
+    // map.on('mouseup', this.props.handleCenterChange);
 
   }
 
