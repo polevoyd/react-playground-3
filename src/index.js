@@ -155,7 +155,7 @@ class App extends React.Component {
       .map(element => {
 
         return {
-           point: this.generateCoordinateWithin(this.state.locationLngLat, 10),
+           point: this.generateCoordinateWithin(this.state.locationLngLat, 7),
            text: element.text,
            pic: element.picture ? element.picture[0].media_url : undefined,
            user: element.user
