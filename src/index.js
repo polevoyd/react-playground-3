@@ -139,15 +139,21 @@ pointAtDistanceWhuber(coords, distance) {
 
       // For each tweet object generating random geo coordinates
       // within certain radius
-      // console.log(response);
+      console.log(response);
 
-      const withCoordinates = response.map(element => {
+      const withCoordinates = response
+      .map(element => {
 
-        return this.pointAtDistanceWhuber(this.state.locationLngLat, 30);
+        return {
+          //  date: element.created_at,
+          //  point: this.pointAtDistanceWhuber(this.state.locationLngLat, 30),
+          //  text: element.text
+        }
       })
 
       // console.log(withCoordinates)
       
+      // this.pointAtDistanceWhuber(this.state.locationLngLat, 30);
   
 
     })
