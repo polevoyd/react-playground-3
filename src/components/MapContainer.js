@@ -7,7 +7,7 @@ class MapContainer extends React.Component {
     render() {
         return (
             <div id='mapbox-container'>
-                <Map coordinates={this.props.coordinates}/>
+                <Map coordinates={this.props.coordinates} handleCenterChange={this.props.handleCenterChange}/>
             </div>
         )
     }

@@ -42,6 +42,18 @@ class Map extends React.Component {
         hash: true 
     })
 
+    map.on('mouseup', this.props.handleCenterChange);
+    
+    // map.on('mouseup', () => {
+
+    //   const newCenter = map.getCenter();
+
+    //   this.setState({
+    //     locationLngLat: [newCenter.lng , newCenter.lat]
+    //   })
+    //   console.log(newCenter)
+    // })
+
   //   map.addControl(new mapboxgl.GeolocateControl({
   //     positionOptions: {
   //         enableHighAccuracy: true

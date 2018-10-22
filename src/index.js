@@ -27,11 +27,25 @@ class App extends React.Component {
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
+    this.handleCenterChange = this.handleCenterChange.bind(this);
   }
 
   componentDidMount() {
 
     this.getCoordinatesFromURL();
+  }
+
+
+  /* ------------------------------------------------------------------------------------------- */
+  //          Change state based on a map center change
+  /* ------------------------------------------------------------------------------------------- */
+
+  handleCenterChange(event) {
+
+      this.setState({
+
+        locationLngLat: [event.lngLat.lng , event.lngLat.lat]
+      })
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -172,7 +186,7 @@ pointAtDistanceWhuber(coords, distance) {
     return (
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
-        <MapContainer coordinates={this.state.locationLngLat} />
+        <MapContainer coordinates={this.state.locationLngLat} handleCenterChange={this.handleCenterChange} />
       </div>
     )
   }
