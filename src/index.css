@@ -61,6 +61,7 @@ html{
   box-shadow: inset 0px 0px 30px -15px rgba(124, 124, 124, 0.5);
   animation-name: appear-to-screen;
   animation-duration: 1.5s;
+  cursor: pointer;
 }
 
 @keyframes slow-blink {
@@ -89,17 +90,22 @@ html{
 }
 
 .marker:hover {
-  
+
   animation-name: slow-blink;
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
 
-.mapboxgl-popup {
+.popup {
+
+  
+}
+
+/* .mapboxgl-popup {
   max-width: 200px;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-}
+} */

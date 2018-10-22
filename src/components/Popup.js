@@ -6,9 +6,11 @@ class Popup extends React.Component {
 
     render() {
         return (
-            <div className>
-
+            <div className="popup">
+                <h3>Hello!</h3>
             </div>
         );
     }
 }
+
+export default Popup;
