@@ -21,7 +21,7 @@ class App extends React.Component {
 
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
-      location: '',
+      location: 'Seattle',
       locationLngLat: this.getCoordinatesFromURL() // [-122.3447, 47.6151]
     }
 
@@ -141,7 +141,7 @@ pointAtDistanceWhuber(coords, distance) {
       // within certain radius
       // console.log(response);
 
-      const withCoordinates = response
+      const tweets = response
       .map(element => {
 
         return {
@@ -152,10 +152,9 @@ pointAtDistanceWhuber(coords, distance) {
         }
       })
 
-      console.log(withCoordinates)
+      console.log(tweets)
       
-      // this.pointAtDistanceWhuber(this.state.locationLngLat, 30);
-  
+
 
     })
     .catch(error => console.error(error));
