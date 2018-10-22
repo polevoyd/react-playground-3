@@ -41,7 +41,7 @@ html{
   display: none;
 }
 
-.marker {
+/* .marker {
   background-image: url('./components/marker.png');
   width: 40px;
   height: 40px;
@@ -49,26 +49,36 @@ html{
   opacity: 0.35;
   box-shadow: inset 0px 0px 30px -15px rgba(124, 124, 124, 0.5);
   transition: 0.3s;
+} */
+
+.marker {
+  background-color: whitesmoke;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 1;
+  box-shadow: inset 0px 0px 30px -15px rgba(124, 124, 124, 0.5);
+  animation: slow-blink 3s infinite ;
 }
 
 @keyframes slow-blink {
 
-  0% { opacity: 0.35; }
-  10% { opacity: 0.45; }
-  20% { opacity: 0.55; }
-  30% { opacity: 0.85; }
-  40% { opacity: 0.75; }
-  50% { opacity: 0.65; }
-  60% { opacity: 0.55; }
-  70% { opacity: 0.45; }
-  80% { opacity: 0.35; }
-  90% { opacity: 0.35; }
-  100% { opacity: 0.35; }
+  0% { opacity: 1; }
+  10% { opacity: 0.6; }
+  20% { opacity: 0.5; }
+  30% { opacity: 0.45; }
+  40% { opacity: 0.35; }
+  50% { opacity: 0.25; }
+  60% { opacity: 0.20; }
+  70% { opacity: 0.15; }
+  80% { opacity: 0.10; }
+  90% { opacity: 0.05; }
+  100% { opacity: 0; }
   
 }
 
 .marker:hover {
-  animation: slow-blink 1s infinite ;
+  
 }
 
 .mapboxgl-popup {
