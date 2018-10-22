@@ -42,14 +42,27 @@ html{
 }
 
 .marker {
-  /* background-image: url('mapbox-icon.png'); */
-  /* background-size: cover; */
   background-image: url('./components/marker.png');
   width: 40px;
   height: 40px;
   border-radius: 50%;
   opacity: 0.35;
   box-shadow: inset 0px 0px 53px -15px rgba(124, 124, 124, 0.5);
+  transition: 0.3s;
+}
+
+.slowblinking {
+  animation: slow-blink 3s infinite ;
+}
+
+@keyframes slow-blink {
+
+  0% { opacity: 1; }
+  
+}
+
+.marker:hover {
+  opacity: 1;
 }
 
 .mapboxgl-popup {
