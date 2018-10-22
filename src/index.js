@@ -95,6 +95,37 @@ class App extends React.Component {
     })
   }
 
+
+  /* ------------------------------------------------------------------------------------------- */
+  //           Helper function: generate random coordinates within radius
+  /* ------------------------------------------------------------------------------------------- */
+
+
+   /* 
+ Implementation from http://gis.stackexchange.com/questions/25877
+ Seems to be very inaccurate
+ */
+pointAtDistanceWhuber(coords, distance) {
+
+	var r = (distance * 1.60934 / 1000) / 111300  
+  , y0 = coords[0]
+  , x0 = coords[1]
+  , u = 1
+  , v = Math.random()
+  , w = r * Math.sqrt(u)
+  , t = 2 * Math.PI * v
+  , x = w * Math.cos(t)
+  , y1 = w * Math.sin(t)
+  , x1 = x / Math.cos(y0)  
+
+	const newY = y0 + y1
+  const newX = x0 + x1
+  
+	return [ newY, newX ]
+}
+
+
+
   /* ------------------------------------------------------------------------------------------- */
   //           on submit - search for a tweets
   /* ------------------------------------------------------------------------------------------- */
@@ -108,22 +139,16 @@ class App extends React.Component {
     .then(response => response.json())
     .then(response => {
 
-      // Array of tweets in that area
-      console.log(response);
+      // For each tweet object generating random geo coordinates
+      // within certain radius
+      // console.log(response);
 
-      let arrayOfTweets = response;
+      const withCoordinates = response.map(element => {
 
-      // Filter on a request side?
-      
-      // need to filter only ones with a geo points
-      console.log('================================================')
-
-      const newArray = arrayOfTweets.filter( element => {
-
-        return (element.geo);
+        return this.pointAtDistanceWhuber(this.state.locationLngLat, this.state.locationLngLat, 30);
       })
 
-      console.log(newArray);
+      console.log(withCoordinates)
       
   
 
