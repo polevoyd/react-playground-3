@@ -51,6 +51,9 @@ class Map extends React.Component {
         return new mapboxgl.Marker()
           .setLngLat(element.point)
           .addTo(map);
+
+          // .setPopup(new mapboxgl.Popup({ offset: 25 })
+          // .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
       })
   }
 
