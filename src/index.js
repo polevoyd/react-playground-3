@@ -65,7 +65,6 @@ class App extends React.Component {
           locationLngLat: results.features[0].center
         })
       });
-      // .then(this.searchForTweets());
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -78,7 +77,9 @@ class App extends React.Component {
     this.requestLocationGeocode(this.state.location)
 
     // starting to search for venue
-    this.searchForTweets();
+    // This has to be done with a pause, so we not getting a empty array
+    setTimeout(() => this.searchForTweets(), 1000);
+    
   }
 
   /* ------------------------------------------------------------------------------------------- */
