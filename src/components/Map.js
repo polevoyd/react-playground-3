@@ -8,6 +8,7 @@ import '../index.css';
 /* ------------------------------------------------------------------------------------------- */
 
 let map;
+let arrayOfMarkers;
 
 class Map extends React.Component {
 
@@ -29,7 +30,7 @@ class Map extends React.Component {
         
         // Creating and add pins to map
         this.createPins(this.props.tweets);
-      }, 2000);
+      }, 3000);
     }
   }
 
@@ -41,9 +42,21 @@ class Map extends React.Component {
   createPins(arrayOfTweets) {
 
     
-    console.log(arrayOfTweets)
+    // console.log(arrayOfTweets)
+
+    // let marker = new mapboxgl.Marker()
+    //   .setLngLat([30.5, 50.5])
+    //   .addTo(map);
     
 
+  
+    arrayOfMarkers = arrayOfTweets
+      .map((element, index) => {
+
+        return new mapboxgl.Marker()
+          .setLngLat(element.point)
+          .addTo(map);
+      })
   }
 
   
