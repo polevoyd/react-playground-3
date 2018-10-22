@@ -52,33 +52,47 @@ html{
 } */
 
 .marker {
-  background-color: whitesmoke;
+
+  background-color: white;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   opacity: 1;
   box-shadow: inset 0px 0px 30px -15px rgba(124, 124, 124, 0.5);
-  animation: slow-blink 3s infinite ;
+  animation-name: appear-to-screen;
+  animation-duration: 1.5s;
 }
 
 @keyframes slow-blink {
 
-  0% { opacity: 1; }
-  10% { opacity: 0.6; }
-  20% { opacity: 0.5; }
-  30% { opacity: 0.45; }
-  40% { opacity: 0.35; }
-  50% { opacity: 0.25; }
-  60% { opacity: 0.20; }
-  70% { opacity: 0.15; }
-  80% { opacity: 0.10; }
-  90% { opacity: 0.05; }
+  0% { opacity: 0; }
+  10% { opacity: 0.6; height: 14px; width: 14px; }
+  20% { opacity: 0.5; height: 18px; width: 18px;}
+  30% { opacity: 0.45; height: 22px; width: 22px;}
+  40% { opacity: 0.35; height: 26px; width: 26px;}
+  50% { opacity: 0.25; height: 30px; width: 30px;}
+  60% { opacity: 0.20; height: 34px; width: 34px;}
+  70% { opacity: 0.15; height: 38px; width: 38px;}
+  80% { opacity: 0.10; height: 42px; width: 42px;}
+  90% { opacity: 0.05; height: 46px; width: 46px;}
   100% { opacity: 0; }
-  
+}
+
+@keyframes appear-to-screen {
+
+  0%    { opacity: 0;     }
+  20%   { opacity: 0.2;   }
+  40%   { opacity: 0.4;  }
+  60%   { opacity: 0.6;  }
+  80%   { opacity: 0.8;  }
+  100%  { opacity: 1;     }
 }
 
 .marker:hover {
   
+  animation-name: slow-blink;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
 
 .mapboxgl-popup {
