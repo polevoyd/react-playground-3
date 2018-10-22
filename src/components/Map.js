@@ -8,7 +8,7 @@ import '../index.css';
 /* ------------------------------------------------------------------------------------------- */
 
 let map;
-let arrayOfMarkers;
+let arrayOfMarkers = [];
 
 class Map extends React.Component {
 
@@ -24,10 +24,14 @@ class Map extends React.Component {
       // Setting map center if it changed
       map.setCenter(nextProps.coordinates)
 
-
       // Need delay to make sure we have something to render
       setTimeout(() => {
         
+      // Clear array of pins
+      for(let element of arrayOfMarkers) {
+        element.remove();
+      }
+
         // Creating and add pins to map
         this.createPins(this.props.tweets);
       }, 3000);
@@ -41,17 +45,9 @@ class Map extends React.Component {
 
   createPins(arrayOfTweets) {
 
-    
-    // console.log(arrayOfTweets)
-
-    // let marker = new mapboxgl.Marker()
-    //   .setLngLat([30.5, 50.5])
-    //   .addTo(map);
-    
     arrayOfMarkers = arrayOfTweets
       .map((element, index) => {
 
-        
         return new mapboxgl.Marker()
           .setLngLat(element.point)
           .addTo(map);

@@ -152,6 +152,7 @@ class App extends React.Component {
       // console.log(response);
 
       const tweets = response
+      .concat(response)
       .map(element => {
 
         return {
