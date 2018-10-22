@@ -22,12 +22,14 @@ class App extends React.Component {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
       location: 'Seattle',
-      locationLngLat: this.getCoordinatesFromURL() // [-122.3447, 47.6151]
+      locationLngLat: this.getCoordinatesFromURL(), // [-122.3447, 47.6151]
+      tweets: []
     }
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleCenterChange = this.handleCenterChange.bind(this);
+    this.searchForTweets = this.searchForTweets.bind(this);
   }
 
   componentDidMount() {
@@ -138,7 +140,6 @@ pointAtDistanceWhuber(coords, distance) {
 }
 
 
-
   /* ------------------------------------------------------------------------------------------- */
   //           on submit - search for a tweets
   /* ------------------------------------------------------------------------------------------- */
@@ -166,9 +167,11 @@ pointAtDistanceWhuber(coords, distance) {
            user: element.user
         }
       })
-
-      console.log(tweets)
       
+      // Adding all points to a state
+      this.setState({
+        tweets: tweets
+      })
 
 
     })
@@ -186,7 +189,7 @@ pointAtDistanceWhuber(coords, distance) {
     return (
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
-        <MapContainer coordinates={this.state.locationLngLat} handleCenterChange={this.handleCenterChange} />
+        <MapContainer coordinates={this.state.locationLngLat} handleCenterChange={this.handleCenterChange} tweets={this.state.tweets}/>
       </div>
     )
   }

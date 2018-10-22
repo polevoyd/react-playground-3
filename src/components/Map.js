@@ -17,10 +17,33 @@ class Map extends React.Component {
 
   componentWillReceiveProps(nextProps){
 
+    // Setting a new map center after user submit a new location
     if (nextProps.coordinates !== this.props.coordinates) {
 
+      // Setting map center if it changed
       map.setCenter(nextProps.coordinates)
-    }  
+
+
+      // Need delay to make sure we have something to render
+      setTimeout(() => {
+        
+        // Creating and add pins to map
+        this.createPins(this.props.tweets);
+      }, 2000);
+    }
+  }
+
+  /* ------------------------------------------------------------------------------------------- */
+  //          Creating pins from a tweets array
+  /* ------------------------------------------------------------------------------------------- */
+
+
+  createPins(arrayOfTweets) {
+
+    
+    console.log(arrayOfTweets)
+    
+
   }
 
   
@@ -42,24 +65,8 @@ class Map extends React.Component {
         hash: true 
     })
 
+    // Listener to change state depending on a map center
     map.on('mouseup', this.props.handleCenterChange);
-    
-    // map.on('mouseup', () => {
-
-    //   const newCenter = map.getCenter();
-
-    //   this.setState({
-    //     locationLngLat: [newCenter.lng , newCenter.lat]
-    //   })
-    //   console.log(newCenter)
-    // })
-
-  //   map.addControl(new mapboxgl.GeolocateControl({
-  //     positionOptions: {
-  //         enableHighAccuracy: true
-  //     },
-  //     trackUserLocation: true
-  // }));
 
   }
 
