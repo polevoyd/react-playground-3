@@ -48,7 +48,11 @@ class Map extends React.Component {
     arrayOfMarkers = arrayOfTweets
       .map((element, index) => {
 
-        return new mapboxgl.Marker()
+        // create a HTML element for each feature
+        const markerHTML = document.createElement('div');
+        markerHTML.className = 'marker';
+
+        return new mapboxgl.Marker(markerHTML)
           .setLngLat(element.point)
           .addTo(map);
 
