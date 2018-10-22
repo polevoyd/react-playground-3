@@ -48,11 +48,10 @@ class Map extends React.Component {
     //   .setLngLat([30.5, 50.5])
     //   .addTo(map);
     
-
-  
     arrayOfMarkers = arrayOfTweets
       .map((element, index) => {
 
+        
         return new mapboxgl.Marker()
           .setLngLat(element.point)
           .addTo(map);

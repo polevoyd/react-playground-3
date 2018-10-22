@@ -117,27 +117,23 @@ class App extends React.Component {
   //           Helper function: generate random coordinates within radius
   /* ------------------------------------------------------------------------------------------- */
 
-  /* 
-    Implementation from http://gis.stackexchange.com/questions/25877
-  */
-pointAtDistanceWhuber(coords, distance) {
 
-	var r = (distance * 1.60934 / 1000) / 111300  
-  , y0 = coords[0]
-  , x0 = coords[1]
-  , u = 1
-  , v = Math.random()
-  , w = r * Math.sqrt(u)
-  , t = 2 * Math.PI * v
-  , x = w * Math.cos(t)
-  , y1 = w * Math.sin(t)
-  , x1 = x / Math.cos(y0) ;
+  generateCoordinateWithin(center, radius) {
 
-	const newY = y0 + y1
-  const newX = x0 + x1
+    let y0 = center[0]
+    let x0 = center[1]
+    let rd = (radius * 1.60934 * 1000) / 111300;
+    let u = Math.random();
+    let v = Math.random();
+    let w = rd * Math.sqrt(u);
+    let t = 2 * Math.PI * v;
+    let x = w * Math.cos(t);
+    let y = w * Math.sin(t);
+    
+    return [y + y0, x + x0]
+  }
 
-	return [ newY, newX ]
-}
+
 
 
   /* ------------------------------------------------------------------------------------------- */
@@ -161,7 +157,7 @@ pointAtDistanceWhuber(coords, distance) {
       .map(element => {
 
         return {
-           point: this.pointAtDistanceWhuber(this.state.locationLngLat, 30),
+           point: this.generateCoordinateWithin(this.state.locationLngLat, 10),
            text: element.text,
            pic: element.picture ? element.picture[0].media_url : undefined,
            user: element.user
