@@ -100,11 +100,9 @@ class App extends React.Component {
   //           Helper function: generate random coordinates within radius
   /* ------------------------------------------------------------------------------------------- */
 
-
-   /* 
- Implementation from http://gis.stackexchange.com/questions/25877
- Seems to be very inaccurate
- */
+  /* 
+    Implementation from http://gis.stackexchange.com/questions/25877
+  */
 pointAtDistanceWhuber(coords, distance) {
 
 	var r = (distance * 1.60934 / 1000) / 111300  
@@ -116,11 +114,11 @@ pointAtDistanceWhuber(coords, distance) {
   , t = 2 * Math.PI * v
   , x = w * Math.cos(t)
   , y1 = w * Math.sin(t)
-  , x1 = x / Math.cos(y0)  
+  , x1 = x / Math.cos(y0) ;
 
 	const newY = y0 + y1
   const newX = x0 + x1
-  
+
 	return [ newY, newX ]
 }
 
@@ -145,10 +143,10 @@ pointAtDistanceWhuber(coords, distance) {
 
       const withCoordinates = response.map(element => {
 
-        return this.pointAtDistanceWhuber(this.state.locationLngLat, this.state.locationLngLat, 30);
+        return this.pointAtDistanceWhuber(this.state.locationLngLat, 30);
       })
 
-      console.log(withCoordinates)
+      // console.log(withCoordinates)
       
   
 
