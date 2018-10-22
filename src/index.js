@@ -172,8 +172,6 @@ pointAtDistanceWhuber(coords, distance) {
       this.setState({
         tweets: tweets
       })
-
-
     })
     .catch(error => console.error(error));
   }
