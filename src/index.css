@@ -21,7 +21,7 @@
 
   position: absolute;
   top: 1em;
-  z-index: 100;
+  z-index: 1;
   height: 2em;
 
   width: 90vw;
@@ -41,7 +41,7 @@
   box-sizing: border-box;
   padding-left: 1em;
 
-  border: 3px solid #07A0C3;
+  border: 3px solid #DC965A;
 }
 
 .location-input button{
@@ -52,7 +52,7 @@
   width: 30vw;
   justify-self: right;
 
-  border: 3px solid #07A0C3;
+  border: 3px solid #DC965A;
 }
 
 .invisible-input {
@@ -61,7 +61,7 @@
 
 .marker {
 
-  background-color: #07A0C3;
+  background-color: #DC965A;
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -107,6 +107,9 @@
   animation-name: appear-to-screen;
   animation-duration: 0.3s;
   max-width: 20em;
+  z-index: 100;
+  
+
 }
 
 .mapboxgl-popup-content {
@@ -114,6 +117,9 @@
   font-family: 'Open Sans', sans-serif;
   padding: 1em;
   border-radius: 20px;
+  /* background-color: #FAACA8;
+  background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%); */
+
 }
 
 .popup-pic {
