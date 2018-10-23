@@ -2,9 +2,9 @@ import { config } from '../config';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
-import Popup from './Popup.js';
 
 import '../index.css';
+
 
 /* ------------------------------------------------------------------------------------------- */
 //             global variable to operate with a map
@@ -51,15 +51,28 @@ class Map extends React.Component {
     arrayOfMarkers = arrayOfTweets
       .map((element, index) => {
 
-        // console.log(element)
+        console.log(element)
 
         // create a HTML element for each feature
         const markerHTML = document.createElement('div');
         markerHTML.className = 'marker';
 
+        const popup = new mapboxgl.Popup({ 
+          offset: 10, 
+          closeButton: false, 
+          className: 'popup'
+        })
+        
+        const popupHTMLContent = `<img className="popup-pic" src=${element.img}></img><p className="popup-text">${element.text}</p><h6 className="popup-author">@${element.user}</h6>`;
+
+        popup.setHTML(popupHTMLContent);
+        
+        
+        
+        
         return new mapboxgl.Marker(markerHTML)
           .setLngLat(element.point)
-          .setPopup(new mapboxgl.Popup({ offset: 10, closeButton: false, className: 'popup'}).setHTML(<Popup />))         // '<h3>Hello!</h3>'
+          .setPopup(popup)
           .addTo(map);
       })
   }
