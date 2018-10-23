@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 
 import '../index.css';
-import { ENETDOWN } from 'constants';
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -61,7 +60,7 @@ class Map extends React.Component {
 
         // Creating a popup
         const popup = new mapboxgl.Popup({ 
-          offset: 10, 
+          offset: 20, 
           closeButton: false, 
           className: 'popup'
         })
