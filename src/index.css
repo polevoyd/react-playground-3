@@ -172,5 +172,9 @@
 }
 
 .info-tab {
-
+  position: absolute;
+  top: 0;
+  
+  height: 40vh;
+  width: 100vw;
 }
