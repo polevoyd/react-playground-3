@@ -137,7 +137,7 @@
 
 .info-icon {
   position: absolute;
-  top: 1em;
+  top: 2em;
   left: 1em;
   border-radius: 50%;
   background-color: #DC965A;
@@ -145,16 +145,26 @@
   width: 20vh;
 
   transition: 0.7s;
+  display: grid;
+  margin: 0 auto;
+
+  /* z-index: 100; */
+}
+
+.info-icon h1{
+
+  justify-self: center;
+  align-self: center;
 }
 
 .info-icon:hover {
   
-
+/* 
   width: 90vw; 
   height: 40vh;
   border: 3px solid #DC965A;
   border-radius: 1em;
   background-color: white;
-  
+   */
 
 }
