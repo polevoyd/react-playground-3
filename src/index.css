@@ -112,6 +112,7 @@ html{
 .popup-pic {
   background-image: url('./components/logo.png');
   max-width: 18em;
+  overflow-y: hidden;
 }
 
 .popup-text {

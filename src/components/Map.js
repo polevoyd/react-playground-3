@@ -75,10 +75,8 @@ class Map extends React.Component {
         })
         
         // HTML Content for a popup
-        const picture = element.pic ? `${element.pic}` : `./components/marker.png`;
-        
-        console.log(picture)
-        const popupHTMLContent = `<img class="popup-pic"></img><p class="popup-text">${element.text}</p><h5 class="popup-author">@${element.user}</h6>`;
+        const picture = element.pic ? element.pic : `./components/marker.png`;
+        const popupHTMLContent = `<img class="popup-pic" src="${picture}"></img><p class="popup-text">${element.text}</p><h5 class="popup-author">@${element.user}</h6>`;
         popup.setHTML(popupHTMLContent);
 
         // on mouseover - show popup
