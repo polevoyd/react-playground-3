@@ -16,6 +16,7 @@ let arrayOfMarkers = [];
 
 
 
+
 class Map extends React.Component {
 
   /* ------------------------------------------------------------------------------------------- */
@@ -66,19 +67,51 @@ class Map extends React.Component {
           className: 'popup'
         })
         
-        const popupHTMLContent = `<img className="popup-pic" src=${element.img}></img><p className="popup-text">${element.text}</p><h6 className="popup-author">@${element.user}</h6>`;
+        const popupHTMLContent = `<img className="popup-pic" src="${element.img}"></img><p className="popup-text">${element.text}</p><h6 className="popup-author">@${element.user}</h6>`;
 
         popup.setHTML(popupHTMLContent);
+
+        //----------------------------------------------------------------------------------------------
+
+      //   map.on('mouseenter', function(e) {
+         
+      //     map.getCanvas().style.cursor = 'pointer';
+  
+      //     var coordinates = e.features[0].geometry.coordinates.slice();
+      //     var description = e.features[0].properties.description;
+  
+      //     // Ensure that if the map is zoomed out such that multiple
+      //     // copies of the feature are visible, the popup appears
+      //     // over the copy being pointed to.
+      //     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      //         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      //     }
+  
+      //     // Populate the popup and set its coordinates
+      //     // based on the feature found.
+      //     popup.setLngLat(coordinates)
+      //         .setHTML(description)
+      //         .addTo(map);
+      // });
+  
+      // map.on('mouseleave', function() {
+      //     map.getCanvas().style.cursor = '';
+      //     popup.remove();
+      // });
+
+      //-------------------------------------------------------------------------------------------------
 
         
         
         return new mapboxgl.Marker(markerHTML)
           .setLngLat(element.point)
           .setPopup(popup)
+          .on('mouseover', function(event) {
+
+            console.log(event)
+          })
           .addTo(map);
       })
-
-
 
   }
 
@@ -129,5 +162,8 @@ class Map extends React.Component {
     );
   }
 }
+
+
+
 
 export default Map;
