@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import LocationInput from './components/LocationInput';
 import './index.css';
 import MapContainer from './components/MapContainer';
+import Info from './components/Info';
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -190,6 +191,7 @@ class App extends React.Component {
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
         <MapContainer coordinates={this.state.locationLngLat} handleCenterChange={this.handleCenterChange} tweets={this.state.tweets}/>
+        <Info />
       </div>
     )
   }
