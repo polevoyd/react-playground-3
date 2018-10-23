@@ -1,12 +1,12 @@
-import React from 'react-dom';
+import React from 'react';
 import '../index.css';
 
 class Popup extends React.Component {
 
     render() {
 
-        return (
-            <div>Hello!</div>
+        return(
+            <h3>Hello!</h3>
         );
     }
 }
