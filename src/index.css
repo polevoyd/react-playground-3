@@ -53,9 +53,9 @@ html{
 
 .marker {
 
-  background-color: white;
-  width: 10px;
-  height: 10px;
+  background-color: #07A0C3;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   opacity: 1;
   box-shadow: inset 0px 0px 30px -15px rgba(124, 124, 124, 0.5);
@@ -101,18 +101,20 @@ html{
   animation-name: appear-to-screen;
   animation-duration: 0.3s;
   max-width: 20em;
+  
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   padding: 1em;
+  border-radius: 20px;
 }
 
 .popup-pic {
-  background-image: url('./components/logo.png');
   max-width: 18em;
   overflow-y: hidden;
+  border-radius: 20px;
 }
 
 .popup-text {

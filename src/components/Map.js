@@ -57,15 +57,11 @@ class Map extends React.Component {
       // .filter(element => element.pic) // Take this line off to show without pictures as well
       .map((element, index) => {
 
-        // console.log(element)
-
-        //==========================================================================
-
         // create a DOM element for the marker
         var markerElement = document.createElement('div');
         markerElement.className = 'marker';
         // markerElement.style.backgroundImage = `url(${element.pic})`
-        // markerElement.style.backgroundColor = make random colors for each marker
+        // markerElement.style.backgroundColor = this.generateRandomColor();
 
         // Creating a popup
         const popup = new mapboxgl.Popup({ 
@@ -75,7 +71,7 @@ class Map extends React.Component {
         })
         
         // HTML Content for a popup
-        const picture = element.pic ? element.pic : `./components/marker.png`;
+        const picture = element.pic ? element.pic : ``;
         const popupHTMLContent = `<img class="popup-pic" src="${picture}"></img><p class="popup-text">${element.text}</p><h5 class="popup-author">@${element.user}</h6>`;
         popup.setHTML(popupHTMLContent);
 
@@ -86,7 +82,7 @@ class Map extends React.Component {
         markerElement.addEventListener('mouseout', () => popup.remove());
       
         // add marker to map
-        new mapboxgl.Marker(markerElement)
+        return new mapboxgl.Marker(markerElement)
             .setLngLat(element.point)
             .setPopup(popup)
             .addTo(map);
@@ -94,7 +90,15 @@ class Map extends React.Component {
 
   }
 
-  
+  /* ------------------------------------------------------------------------------------------- */
+  //          Generate random color
+  /* ------------------------------------------------------------------------------------------- */
+
+  generateRandomColor() {
+
+    return `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`
+  }
+
   /* ------------------------------------------------------------------------------------------- */
   //          Rendering map to a screen
   /* ------------------------------------------------------------------------------------------- */
@@ -115,8 +119,6 @@ class Map extends React.Component {
         maxZoom: 15,
         interactive: true
     })
-
-  
 
     // Listener to change state depending on a map center
     // Map starting to lag on with a listener - so turning it off
