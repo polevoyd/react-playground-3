@@ -67,34 +67,29 @@ class Map extends React.Component {
         // markerElement.style.backgroundImage = `url(${element.pic})`
         // markerElement.style.backgroundColor = make random colors for each marker
 
+        // Creating a popup
         const popup = new mapboxgl.Popup({ 
           offset: 10, 
           closeButton: false, 
           className: 'popup'
         })
         
+        // HTML Content for a popup
         const popupHTMLContent = `<img class="popup-pic" src="${element.pic}"></img><p class="popup-text">${element.text}</p><h5 class="popup-author">@${element.user}</h6>`;
-
         popup.setHTML(popupHTMLContent);
 
-
+        // on mouseover - show popup
         markerElement.addEventListener('mouseover', function(event) {
             
-          // Populate the popup and set its coordinates
-          // based on the feature found.
           popup.setLngLat(element.point)
           .setHTML(popupHTMLContent)
           .addTo(map);
-
         });
 
+        // on mouseout - remove popup
         markerElement.addEventListener('mouseout', function(event) {
             
-          // Populate the popup and set its coordinates
-          // based on the feature found.
-          popup
-          .remove();
-
+          popup.remove();
         });
       
         // add marker to map
