@@ -198,12 +198,9 @@ class App extends React.Component {
     }
   }
 
-  
-
   /* ------------------------------------------------------------------------------------------- */
   //        Entry point
   /* ------------------------------------------------------------------------------------------- */
-
   
   render() {
 
@@ -217,7 +214,6 @@ class App extends React.Component {
     )
   }
 }
-
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

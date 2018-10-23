@@ -8,7 +8,9 @@ class InfoTab extends React.Component {
         return(
             <div className="info-tab">
             <h2>Tweeter Map</h2>
-            <p>Hi! This simple app will show you a map of tweets in a city.</p>
+            <p>Simply put a city and explore local tweets!</p>
+            <p className='made-by'>Made by <a href="http://www.polevoy.in">www.polevoy.in</a></p>
+
             </div>
         );
     }
