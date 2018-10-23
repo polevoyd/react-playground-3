@@ -24,15 +24,21 @@
   z-index: 100;
   height: 2em;
 
-  margin: 0 1em 0 1em;
+  width: 90vw;
+  margin: 0 1em;
 }
 
 .location-input input{
   grid-column: 1;
   grid-row: 1;
+ 
   border-radius: 1em;
   border: none;
   height: 100%;
+  /* padding-left: 1em; */
+  width: 90vw;
+  font-size: 1em;
+  box-sizing: border-box;
   padding-left: 1em;
 }
 
@@ -41,6 +47,8 @@
   grid-row: 1;
   border: none;
   border-radius: 1em;
+  width: 30vw;
+  justify-self: right;
 }
 
 .invisible-input {
