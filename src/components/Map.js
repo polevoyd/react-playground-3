@@ -54,14 +54,18 @@ class Map extends React.Component {
   createPins(arrayOfTweets) {
 
     arrayOfMarkers = arrayOfTweets
-      .filter(element => element.pic) // Take this line off to show without pictures as well
+      // .filter(element => element.pic) // Take this line off to show without pictures as well
       .map((element, index) => {
 
         console.log(element)
 
-        // create a HTML element for each feature
-        const markerHTML = document.createElement('div');
-        markerHTML.className = 'marker';
+        //==========================================================================
+
+        // create a DOM element for the marker
+        var markerElement = document.createElement('div');
+        markerElement.className = 'marker';
+        // markerElement.style.backgroundImage = `url(${element.pic})`
+        // markerElement.style.backgroundColor = make random colors for each marker
 
         const popup = new mapboxgl.Popup({ 
           offset: 10, 
@@ -69,15 +73,22 @@ class Map extends React.Component {
           className: 'popup'
         })
         
-        const popupHTMLContent = `<img class="popup-pic" src="${element.pic}"></img><p class="popup-text">${element.text}</p><h6 class="popup-author">@${element.user}</h6>`;
+        const popupHTMLContent = `<img class="popup-pic" src="${element.pic}"></img><p class="popup-text">${element.text}</p><h5 class="popup-author">@${element.user}</h6>`;
 
         popup.setHTML(popupHTMLContent);
-  
-        
-        return new mapboxgl.Marker(markerHTML)
-          .setLngLat(element.point)
-          .setPopup(popup)
-          .addTo(map);
+
+
+        // markerElement.addEventListener('mouseover', function(event) {
+        //     console.log('HEllo!')
+
+        // });
+      
+        // add marker to map
+        new mapboxgl.Marker(markerElement)
+            .setLngLat(element.point)
+            .setPopup(popup)
+            .addTo(map);
+
       })
 
   }

@@ -101,15 +101,17 @@ html{
   animation-name: appear-to-screen;
   animation-duration: 0.3s;
   max-width: 10em;
+ 
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+
 }
 
 .popup-pic {
-  max-width: 10vw;
+  max-width: 8vw;
 }
 
 .popup-text {
