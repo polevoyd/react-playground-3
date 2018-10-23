@@ -67,8 +67,6 @@
   100%  { width: 30vw }
 }
 
-
-
 .invisible-input {
   display: none;
 }
@@ -135,4 +133,9 @@
   max-width: 18em;
   overflow-y: hidden;
   border-radius: 20px;
+}
+
+.info-icon{
+  border-radius: 50%;
+  background-color: #DC965A;
 }
