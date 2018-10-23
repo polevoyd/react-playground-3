@@ -64,11 +64,8 @@
 
 @keyframes bouncing-to-left {
   0%    { width: 30vw }
-
   50%   { width: 50vw }
-
   80%   { width: 50vw }
-
   100%  { width: 30vw }
 }
 
