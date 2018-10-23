@@ -1,37 +1,49 @@
 * {
-  /* outline: 1px orange solid; */
+  outline: 1px orange solid;
 }
 
 html{
-  padding: 4em;
+  padding: 0px;
+  margin: 0px;
 }
 
 #mapbox-container {
-  margin: 10vh auto;
-  height: 60vh;
-  width: 60vw;
-  border: 1px black solid;
+  height: 100vh;
+  width: 100vw;
+  outline: 1px solid black;
 }
 
 .location-input {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 1fr 1fr;
-  grid-row-gap: 5vh;
+  /* grid-row-gap: 5vh; */
   margin: 0 auto;
   width: 50vw;
 }
 
-.location-input *{
+form.location-input {
+  position: absolute;
+  top: 2em;
+  left: 2em;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 100%;
+  z-index: 100;
 }
 
-.location-input label input{
+
+
+
+.location-input input{
   width: 40vw;
+  grid-column: 1;
 }
 
 .location-input button{
-  width: 30vw;
+  width: 20vw;
+  grid-column: 2;
 }
 
 .invisible-input {
