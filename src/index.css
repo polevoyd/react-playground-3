@@ -175,7 +175,17 @@
 .info-tab {
   position: absolute;
   top: 0;
-  
   width: 100vw;
+  height: 50vh;
   background-color: rgb(211, 157, 110);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transition: 0.4s;
+  
+  text-align: center;
+  
+}
+
+.info-tab h2 {
+  /* position: absolute; */
 }
