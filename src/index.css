@@ -98,7 +98,9 @@ html{
 
 .popup {
 
-  
+  animation-name: appear-to-screen;
+  animation-duration: 1.5s;
+  color: orange;
 }
 
 /* .mapboxgl-popup {
