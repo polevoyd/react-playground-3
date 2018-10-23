@@ -185,10 +185,12 @@ class App extends React.Component {
 
   handleInfoButtonClick() {
 
-    if (document.querySelector('div.info-tab').style.height !== '50vh') {
+    if (document.querySelector('div.info-tab').style.height !== '40vh') {
 
-      document.querySelector('div.info-tab').style.height = '50vh';
+      document.querySelector('div.info-tab').style.height = '40vh';
       document.querySelector('div.info-tab').style.paddingTop = '18vh';
+      document.querySelector('div.info-tab').style.borderRadius = '0em 0em 2em 2em';
+      
 
     } else {
 
