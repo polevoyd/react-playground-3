@@ -190,3 +190,7 @@
 .made-by {
   text-decoration: none;
 }
+
+#mapbox-container {
+  transition: 1s;
+}
