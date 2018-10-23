@@ -78,10 +78,24 @@ class Map extends React.Component {
         popup.setHTML(popupHTMLContent);
 
 
-        // markerElement.addEventListener('mouseover', function(event) {
-        //     console.log('HEllo!')
+        markerElement.addEventListener('mouseover', function(event) {
+            
+          // Populate the popup and set its coordinates
+          // based on the feature found.
+          popup.setLngLat(element.point)
+          .setHTML(popupHTMLContent)
+          .addTo(map);
 
-        // });
+        });
+
+        markerElement.addEventListener('mouseout', function(event) {
+            
+          // Populate the popup and set its coordinates
+          // based on the feature found.
+          popup
+          .remove();
+
+        });
       
         // add marker to map
         new mapboxgl.Marker(markerElement)
