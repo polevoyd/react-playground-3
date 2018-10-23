@@ -21,7 +21,7 @@
 
   position: absolute;
   top: 1em;
-  z-index: 1;
+  z-index: 2;
   height: 2em;
 
   width: 90vw;
@@ -43,7 +43,7 @@
   border: 3px solid #DC965A;
 }
 
-.location-input button{
+.location-input button {
   grid-column: 2;
   grid-row: 1;
   border: none;
@@ -149,6 +149,7 @@
   transition: 0.7s;
   display: grid;
   margin: 0 auto;
+  z-index: 1;
 
   color: rgb(167, 78, 0);
 }
@@ -175,6 +176,6 @@
   position: absolute;
   top: 0;
   
-  height: 40vh;
   width: 100vw;
+  background-color: rgb(211, 157, 110);
 }

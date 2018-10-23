@@ -5,7 +5,7 @@ class InfoButton extends React.Component {
 
     render(){
         return(
-            <div className="info-icon">
+            <div className="info-icon" onClick={this.props.handleInfoButtonClick}>
             <h1>?</h1>
             </div>
         );

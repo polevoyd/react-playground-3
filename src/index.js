@@ -6,6 +6,7 @@ import LocationInput from './components/LocationInput';
 import './index.css';
 import MapContainer from './components/MapContainer';
 import InfoButton from './components/InfoButton';
+import InfoTab from './components/InfoTab';
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -124,7 +125,6 @@ class App extends React.Component {
   //           Helper function: generate random coordinates within radius
   /* ------------------------------------------------------------------------------------------- */
 
-
   generateCoordinateWithin(center, radius) {
 
     let y0 = center[0]
@@ -179,6 +179,22 @@ class App extends React.Component {
     .catch(error => console.error(error));
   }
   
+  /* ------------------------------------------------------------------------------------------- */
+  //        Entry point
+  /* ------------------------------------------------------------------------------------------- */
+
+  handleInfoButtonClick() {
+    
+    if (document.querySelector('div.info-tab').style.height !== '40vh') {
+
+      document.querySelector('div.info-tab').style.height = '40vh';
+    } else {
+
+      document.querySelector('div.info-tab').style.height = '0vh';
+    }
+  }
+
+  
 
   /* ------------------------------------------------------------------------------------------- */
   //        Entry point
@@ -191,11 +207,13 @@ class App extends React.Component {
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
         <MapContainer coordinates={this.state.locationLngLat} handleCenterChange={this.handleCenterChange} tweets={this.state.tweets}/>
-        <InfoButton />
+        <InfoButton handleInfoButtonClick={this.handleInfoButtonClick}/>
+        <InfoTab />
       </div>
     )
   }
 }
+
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
