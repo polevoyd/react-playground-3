@@ -153,7 +153,7 @@
   color: rgb(167, 78, 0);
 }
 
-.info-icon h1{
+.info-icon h1 {
 
   justify-self: center;
   align-self: center;
@@ -168,5 +168,9 @@
   border-radius: 1em;
   background-color: white;
    */
+
+}
+
+.info-tab {
 
 }
