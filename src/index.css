@@ -142,11 +142,9 @@
   top: 4em;
   left: 1em;
   border-radius: 50%;
-  /* background-color: #DC965A; */
   border: 3px solid #DC965A;
   height: 4em;
   width: 4em;
-
   transition: 0.7s;
   display: grid;
   margin: 0 auto;
@@ -172,12 +170,9 @@
   top: 0;
   width: 98vw;
   height: 0;
-  /* background-color: rgb(211, 157, 110); */
   overflow-x: hidden;
   overflow-y: hidden;
   transition: 0.4s;
-
-  
   text-align: center;
 }
 
