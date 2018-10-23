@@ -190,12 +190,13 @@ class App extends React.Component {
       document.querySelector('div.info-tab').style.height = '40vh';
       document.querySelector('div.info-tab').style.paddingTop = '18vh';
       document.querySelector('div.info-tab').style.borderRadius = '0em 0em 2em 2em';
-      
+      document.querySelector('div.info-tab').style.border = '3px solid #DC965A';
 
     } else {
 
       document.querySelector('div.info-tab').style.height = '0vh';
       document.querySelector('div.info-tab').style.paddingTop = '0vh';
+      document.querySelector('div.info-tab').style.border = 'none';
 
     }
   }

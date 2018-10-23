@@ -51,7 +51,7 @@
   width: 30vw;
   justify-self: right;
   font-size: 0.8em;
-  color: rgb(167, 78, 0);
+  color: white;
 
   border: 3px solid #DC965A;
   background-color: #DC965A;
@@ -142,7 +142,8 @@
   top: 4em;
   left: 1em;
   border-radius: 50%;
-  background-color: #DC965A;
+  /* background-color: #DC965A; */
+  border: 3px solid #DC965A;
   height: 4em;
   width: 4em;
 
@@ -151,7 +152,7 @@
   margin: 0 auto;
   z-index: 1;
 
-  color: rgb(167, 78, 0);
+  color: #DC965A;
 }
 
 .info-icon h1 {
@@ -162,33 +163,27 @@
 
 .info-icon:hover {
   
-/* 
-  width: 90vw; 
-  height: 40vh;
-  border: 3px solid #DC965A;
-  border-radius: 1em;
-  background-color: white;
-   */
+
 
 }
 
 .info-tab {
   position: absolute;
   top: 0;
-  width: 100vw;
-  height: 50vh;
-  background-color: rgb(211, 157, 110);
+  width: 98vw;
+  height: 0;
+  /* background-color: rgb(211, 157, 110); */
   overflow-x: hidden;
   overflow-y: hidden;
   transition: 0.4s;
+
   
   text-align: center;
-  
 }
 
 .info-tab * {
-  font-size: 0.9em;
-  color: rgb(117, 55, 0);
+  font-size: 1em;
+  color: white;
   margin: 1em 3em 0 3em;
 }
 
