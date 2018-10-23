@@ -64,7 +64,6 @@ class App extends React.Component {
   getCoordinatesFromURL = () => {
 
     return window.location.hash.split('/').splice(1, 2).map( element => parseFloat(element));
-
   }
 
   /* ------------------------------------------------------------------------------------------- */
