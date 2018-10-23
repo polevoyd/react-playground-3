@@ -50,8 +50,8 @@
 .marker {
 
   background-color: #07A0C3;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   opacity: 1;
   box-shadow: inset 0px 0px 30px -15px rgba(124, 124, 124, 0.5);
@@ -63,15 +63,15 @@
 @keyframes slow-blink {
 
   0% { opacity: 0; }
-  10% { opacity: 0.6; height: 14px; width: 14px; }
-  20% { opacity: 0.5; height: 18px; width: 18px;}
-  30% { opacity: 0.45; height: 22px; width: 22px;}
-  40% { opacity: 0.35; height: 26px; width: 26px;}
-  50% { opacity: 0.25; height: 30px; width: 30px;}
-  60% { opacity: 0.20; height: 34px; width: 34px;}
-  70% { opacity: 0.15; height: 38px; width: 38px;}
-  80% { opacity: 0.10; height: 42px; width: 42px;}
-  90% { opacity: 0.05; height: 46px; width: 46px;}
+  10% { opacity: 0.6; height: 16px; width: 16px; }
+  20% { opacity: 0.5; height: 20px; width: 20px;}
+  30% { opacity: 0.45; height: 24px; width: 24px;}
+  40% { opacity: 0.35; height: 28px; width: 28px;}
+  50% { opacity: 0.25; height: 32px; width: 32px;}
+  60% { opacity: 0.20; height: 36px; width: 36px;}
+  70% { opacity: 0.15; height: 40px; width: 40px;}
+  80% { opacity: 0.10; height: 44px; width: 44px;}
+  90% { opacity: 0.05; height: 48px; width: 48px;}
   100% { opacity: 0; }
 }
 
