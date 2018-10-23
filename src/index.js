@@ -18,7 +18,6 @@ class App extends React.Component {
   constructor(props) {
 
     super(props);
-
     this.state = {
 
       // set initial location to current location and load it on mount
@@ -34,10 +33,13 @@ class App extends React.Component {
     this.searchForTweets = this.searchForTweets.bind(this);
   }
 
+  /* ------------------------------------------------------------------------------------------- */
+  //          Change state based on a map center change
+  /* ------------------------------------------------------------------------------------------- */
+
   componentDidMount() {
 
     this.getCoordinatesFromURL();
-    
     // Requesting tweets for a default starting location
     this.requestLocationGeocode(this.state.location)
 
