@@ -41,16 +41,6 @@ html{
   display: none;
 }
 
-/* .marker {
-  background-image: url('./components/marker.png');
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  opacity: 0.35;
-  box-shadow: inset 0px 0px 30px -15px rgba(124, 124, 124, 0.5);
-  transition: 0.3s;
-} */
-
 .marker {
 
   background-color: #07A0C3;
