@@ -107,11 +107,13 @@ html{
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-
 }
 
 .popup-pic {
-  max-width: 8vw;
+  
+  background-image: url('./components/logo.png');
+  height: 100px;
+  width: 100px;
 }
 
 .popup-text {

@@ -57,7 +57,7 @@ class Map extends React.Component {
       // .filter(element => element.pic) // Take this line off to show without pictures as well
       .map((element, index) => {
 
-        console.log(element)
+        // console.log(element)
 
         //==========================================================================
 
@@ -75,29 +75,23 @@ class Map extends React.Component {
         })
         
         // HTML Content for a popup
-        const popupHTMLContent = `<img class="popup-pic" src="${element.pic}"></img><p class="popup-text">${element.text}</p><h5 class="popup-author">@${element.user}</h6>`;
+        const picture = element.pic ? `${element.pic}` : `./components/marker.png`;
+        
+        console.log(picture)
+        const popupHTMLContent = `<img class="popup-pic"></img><p class="popup-text">${element.text}</p><h5 class="popup-author">@${element.user}</h6>`;
         popup.setHTML(popupHTMLContent);
 
         // on mouseover - show popup
-        markerElement.addEventListener('mouseover', function(event) {
-            
-          popup.setLngLat(element.point)
-          .setHTML(popupHTMLContent)
-          .addTo(map);
-        });
+        markerElement.addEventListener('mouseover', () => popup.setLngLat(element.point).setHTML(popupHTMLContent).addTo(map));
 
         // on mouseout - remove popup
-        markerElement.addEventListener('mouseout', function(event) {
-            
-          popup.remove();
-        });
+        markerElement.addEventListener('mouseout', () => popup.remove());
       
         // add marker to map
         new mapboxgl.Marker(markerElement)
             .setLngLat(element.point)
             .setPopup(popup)
             .addTo(map);
-
       })
 
   }
