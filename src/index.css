@@ -40,6 +40,8 @@
   font-size: 1em;
   box-sizing: border-box;
   padding-left: 1em;
+
+  border: 3px solid #07A0C3;
 }
 
 .location-input button{
@@ -49,6 +51,8 @@
   border-radius: 1em;
   width: 30vw;
   justify-self: right;
+
+  border: 3px solid #07A0C3;
 }
 
 .invisible-input {
