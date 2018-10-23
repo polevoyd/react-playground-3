@@ -9,7 +9,7 @@ class LocationInput extends React.Component {
                 <label>
                     <input type="text" name="location" placeholder="Enter a city" value={this.props.locationToShow} onChange={this.props.handleLocationChange}></input>
                 </label>
-                <button type="submit">Show Tweets</button>
+                <button type="submit">Find tweets</button>
             </form>
         )
     }

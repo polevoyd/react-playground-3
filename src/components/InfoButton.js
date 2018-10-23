@@ -1,7 +1,7 @@
 import React from 'react';
 import '../index.css';
 
-class Info extends React.Component {
+class InfoButton extends React.Component {
 
     render(){
         return(
@@ -12,4 +12,4 @@ class Info extends React.Component {
     }
 }
 
-export default Info;
+export default InfoButton;
