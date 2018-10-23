@@ -14,10 +14,6 @@ import { ENETDOWN } from 'constants';
 let map;
 let arrayOfMarkers = [];
 
-
-
-
-
 class Map extends React.Component {
 
   /* ------------------------------------------------------------------------------------------- */
@@ -87,7 +83,6 @@ class Map extends React.Component {
             .setPopup(popup)
             .addTo(map);
       })
-
   }
 
   /* ------------------------------------------------------------------------------------------- */
