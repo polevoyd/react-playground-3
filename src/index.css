@@ -6,15 +6,12 @@ html{
   padding: 4em;
 }
 
-
 #mapbox-container {
   margin: 10vh auto;
   height: 60vh;
   width: 60vw;
   border: 1px black solid;
 }
-
-
 
 .location-input {
   display: grid;
