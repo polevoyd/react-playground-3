@@ -21,7 +21,7 @@ class App extends React.Component {
 
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
-      location: 'Seattle',
+      location: 'Los Angeles',
       locationLngLat: this.getCoordinatesFromURL(), // [-122.3447, 47.6151]
       tweets: []
     }
@@ -35,6 +35,13 @@ class App extends React.Component {
   componentDidMount() {
 
     this.getCoordinatesFromURL();
+    
+    // Requesting tweets for a default starting location
+    this.requestLocationGeocode(this.state.location)
+
+    // starting to search for venue
+    // This has to be done with a pause, so we not getting a empty array
+    setTimeout(() => this.searchForTweets(), 1000);
   }
 
 
@@ -142,6 +149,7 @@ class App extends React.Component {
   searchForTweets() {
 
     const linkToFetch = `http://localhost:4000/tweets?lat=${this.state.locationLngLat[1]}&lng=${this.state.locationLngLat[0]}`;
+    // const linkToFetch = `https://cityglow.herokuapp.com/tweets?lat=${this.state.locationLngLat[1]}&lng=${this.state.locationLngLat[0]}`;
 
     fetch(linkToFetch)
     .then(response => response.json())

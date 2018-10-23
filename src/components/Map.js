@@ -106,7 +106,7 @@ class Map extends React.Component {
     map = new mapboxgl.Map({
         container: document.getElementById('mapbox-container'),
         style: 'mapbox://styles/mapbox/dark-v9',
-        center: ['-122.3301', '47.6038'],
+        center: ['-118.2439', '34.0544'],
         zoom: 12,
         hash: false,
         minZoom: 11,
