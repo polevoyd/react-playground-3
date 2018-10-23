@@ -100,20 +100,18 @@ html{
 .mapboxgl-popup {
   animation-name: appear-to-screen;
   animation-duration: 0.3s;
-  max-width: 10em;
- 
+  max-width: 20em;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  padding: 1em;
 }
 
 .popup-pic {
-  
   background-image: url('./components/logo.png');
-  height: 100px;
-  width: 100px;
+  max-width: 18em;
 }
 
 .popup-text {
