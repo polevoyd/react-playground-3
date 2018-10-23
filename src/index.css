@@ -96,18 +96,14 @@ html{
   animation-iteration-count: infinite;
 }
 
-.popup {
 
+.mapboxgl-popup {
   animation-name: appear-to-screen;
-  animation-duration: 1.5s;
-  color: orange;
-}
-
-/* .mapboxgl-popup {
+  animation-duration: 0.3s;
   max-width: 200px;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-} */
+}

@@ -2,6 +2,7 @@ import { config } from '../config';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
+import Popup from './Popup.js';
 
 import '../index.css';
 
@@ -58,7 +59,7 @@ class Map extends React.Component {
 
         return new mapboxgl.Marker(markerHTML)
           .setLngLat(element.point)
-          .setPopup(new mapboxgl.Popup({ offset: 10, closeButton: false, className: 'popup'}).setHTML('<h3>Hello!</h3>'))
+          .setPopup(new mapboxgl.Popup({ offset: 10, closeButton: false, className: 'popup'}).setHTML('<Popup />'))         // '<h3>Hello!</h3>'
           .addTo(map);
       })
   }
