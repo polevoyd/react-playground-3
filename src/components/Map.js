@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 
 import '../index.css';
+import { ENETDOWN } from 'constants';
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -55,7 +56,7 @@ class Map extends React.Component {
     arrayOfMarkers = arrayOfTweets
       .map((element, index) => {
 
-        console.log(element)
+        // console.log(element)
 
         // create a HTML element for each feature
         const markerHTML = document.createElement('div');
@@ -70,46 +71,11 @@ class Map extends React.Component {
         const popupHTMLContent = `<img className="popup-pic" src="${element.img}"></img><p className="popup-text">${element.text}</p><h6 className="popup-author">@${element.user}</h6>`;
 
         popup.setHTML(popupHTMLContent);
-
-        //----------------------------------------------------------------------------------------------
-
-      //   map.on('mouseenter', function(e) {
-         
-      //     map.getCanvas().style.cursor = 'pointer';
   
-      //     var coordinates = e.features[0].geometry.coordinates.slice();
-      //     var description = e.features[0].properties.description;
-  
-      //     // Ensure that if the map is zoomed out such that multiple
-      //     // copies of the feature are visible, the popup appears
-      //     // over the copy being pointed to.
-      //     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      //         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      //     }
-  
-      //     // Populate the popup and set its coordinates
-      //     // based on the feature found.
-      //     popup.setLngLat(coordinates)
-      //         .setHTML(description)
-      //         .addTo(map);
-      // });
-  
-      // map.on('mouseleave', function() {
-      //     map.getCanvas().style.cursor = '';
-      //     popup.remove();
-      // });
-
-      //-------------------------------------------------------------------------------------------------
-
-        
         
         return new mapboxgl.Marker(markerHTML)
           .setLngLat(element.point)
           .setPopup(popup)
-          .on('mouseover', function(event) {
-
-            console.log(event)
-          })
           .addTo(map);
       })
 
@@ -136,6 +102,8 @@ class Map extends React.Component {
         maxZoom: 15,
         interactive: true
     })
+
+  
 
     // Listener to change state depending on a map center
     // Map starting to lag on with a listener - so turning it off
