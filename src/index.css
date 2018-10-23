@@ -35,7 +35,6 @@
   border-radius: 1em;
   border: none;
   height: 100%;
-  /* padding-left: 1em; */
   width: 90vw;
   font-size: 1em;
   box-sizing: border-box;
@@ -58,7 +57,6 @@
 }
 
 .location-input button:hover {
-  /* width: 100%; */
   animation: bouncing-to-left 1s infinite;
 }
 
@@ -90,27 +88,27 @@
 
 @keyframes slow-blink {
 
-  0% { opacity: 0; }
-  10% { opacity: 0.6; height: 16px; width: 16px; }
-  20% { opacity: 0.5; height: 20px; width: 20px;}
-  30% { opacity: 0.45; height: 24px; width: 24px;}
-  40% { opacity: 0.35; height: 28px; width: 28px;}
-  50% { opacity: 0.25; height: 32px; width: 32px;}
-  60% { opacity: 0.20; height: 36px; width: 36px;}
-  70% { opacity: 0.15; height: 40px; width: 40px;}
-  80% { opacity: 0.10; height: 44px; width: 44px;}
-  90% { opacity: 0.05; height: 48px; width: 48px;}
-  100% { opacity: 0; }
+  0%    { opacity: 0; }
+  10%   { opacity: 0.6; height: 16px; width: 16px;  }
+  20%   { opacity: 0.5; height: 20px; width: 20px;  }
+  30%   { opacity: 0.45; height: 24px; width: 24px; }
+  40%   { opacity: 0.35; height: 28px; width: 28px; }
+  50%   { opacity: 0.25; height: 32px; width: 32px; }
+  60%   { opacity: 0.20; height: 36px; width: 36px; }
+  70%   { opacity: 0.15; height: 40px; width: 40px; }
+  80%   { opacity: 0.10; height: 44px; width: 44px; }
+  90%   { opacity: 0.05; height: 48px; width: 48px; }
+  100%  { opacity: 0; }
 }
 
 @keyframes appear-to-screen {
 
-  0%    { opacity: 0;     }
-  20%   { opacity: 0.2;   }
+  0%    { opacity: 0;    }
+  20%   { opacity: 0.2;  }
   40%   { opacity: 0.4;  }
   60%   { opacity: 0.6;  }
   80%   { opacity: 0.8;  }
-  100%  { opacity: 1;     }
+  100%  { opacity: 1;    }
 }
 
 .marker:hover {
