@@ -34,7 +34,7 @@ class App extends React.Component {
   }
 
   /* ------------------------------------------------------------------------------------------- */
-  //          Change state based on a map center change
+  //          After mounting done
   /* ------------------------------------------------------------------------------------------- */
 
   componentDidMount() {
@@ -47,7 +47,6 @@ class App extends React.Component {
     // This has to be done with a pause, so we not getting a empty array
     setTimeout(() => this.searchForTweets(), 1000);
   }
-
 
   /* ------------------------------------------------------------------------------------------- */
   //          Change state based on a map center change
@@ -142,11 +141,9 @@ class App extends React.Component {
     return [y + y0, x + x0]
   }
 
-
   /* ------------------------------------------------------------------------------------------- */
   //           on submit - search for a tweets
   /* ------------------------------------------------------------------------------------------- */
-
 
   searchForTweets() {
 
