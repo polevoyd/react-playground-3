@@ -54,9 +54,10 @@ class Map extends React.Component {
   createPins(arrayOfTweets) {
 
     arrayOfMarkers = arrayOfTweets
+      .filter(element => element.pic) // Take this line off to show without pictures as well
       .map((element, index) => {
 
-        // console.log(element)
+        console.log(element)
 
         // create a HTML element for each feature
         const markerHTML = document.createElement('div');
@@ -68,7 +69,7 @@ class Map extends React.Component {
           className: 'popup'
         })
         
-        const popupHTMLContent = `<img className="popup-pic" src="${element.img}"></img><p className="popup-text">${element.text}</p><h6 className="popup-author">@${element.user}</h6>`;
+        const popupHTMLContent = `<img class="popup-pic" src="${element.pic}"></img><p class="popup-text">${element.text}</p><h6 class="popup-author">@${element.user}</h6>`;
 
         popup.setHTML(popupHTMLContent);
   
