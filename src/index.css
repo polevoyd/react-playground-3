@@ -36,7 +36,7 @@
   border: none;
   height: 100%;
   width: 90vw;
-  font-size: 1em;
+  font-size: 0.8em;
   box-sizing: border-box;
   padding-left: 1em;
 
@@ -50,6 +50,8 @@
   border-radius: 1em;
   width: 30vw;
   justify-self: right;
+  font-size: 0.8em;
+  color: rgb(167, 78, 0);
 
   border: 3px solid #DC965A;
   background-color: #DC965A;
@@ -148,7 +150,7 @@
   display: grid;
   margin: 0 auto;
 
-  /* z-index: 100; */
+  color: rgb(167, 78, 0);
 }
 
 .info-icon h1{
