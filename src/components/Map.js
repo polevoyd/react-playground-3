@@ -13,6 +13,9 @@ import '../index.css';
 let map;
 let arrayOfMarkers = [];
 
+
+
+
 class Map extends React.Component {
 
   /* ------------------------------------------------------------------------------------------- */
@@ -66,8 +69,7 @@ class Map extends React.Component {
         const popupHTMLContent = `<img className="popup-pic" src=${element.img}></img><p className="popup-text">${element.text}</p><h6 className="popup-author">@${element.user}</h6>`;
 
         popup.setHTML(popupHTMLContent);
-        
-        
+
         
         
         return new mapboxgl.Marker(markerHTML)
@@ -75,6 +77,9 @@ class Map extends React.Component {
           .setPopup(popup)
           .addTo(map);
       })
+
+
+
   }
 
   
