@@ -144,11 +144,14 @@
   margin: 0 auto;
   z-index: 1;
   color: #DC965A;
+
+  /* add inner shadow  */
 }
 
 .info-icon h1 {
   justify-self: center;
   align-self: center;
+  font-size: 3.5em;
 }
 
 .info-icon:hover {

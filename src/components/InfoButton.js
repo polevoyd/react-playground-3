@@ -5,8 +5,8 @@ class InfoButton extends React.Component {
 
     render(){
         return(
-            <div className="info-icon" onClick={this.props.handleInfoButtonClick}>
-            <h1>?</h1>
+            <div onClick={this.props.handleInfoButtonClick}>
+            <h1 className="question-mark">?</h1>
             </div>
         );
     }
