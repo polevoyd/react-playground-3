@@ -8,7 +8,6 @@ import MapContainer from './components/MapContainer';
 import InfoButton from './components/InfoButton';
 import InfoTab from './components/InfoTab';
 
-
 /* ------------------------------------------------------------------------------------------- */
 //          Main component of an app
 /* ------------------------------------------------------------------------------------------- */
@@ -156,7 +155,6 @@ class App extends React.Component {
 
       // For each tweet object generating random geo coordinates
       // within certain radius
-      // console.log(response);
 
       const tweets = response
       .concat(response)
@@ -191,16 +189,12 @@ class App extends React.Component {
       document.querySelector('div.info-tab').style.borderRadius = '0em 0em 2em 2em';
       document.querySelector('div.info-tab').style.border = '3px solid #DC965A';
       document.querySelector('div.info-tab').style.backgroundColor = '#2F2F2F';
-      // document.querySelector('#mapbox-container').style.filter = 'blur(5px)';
-
 
     } else {
 
       document.querySelector('div.info-tab').style.height = '0vh';
       document.querySelector('div.info-tab').style.paddingTop = '0vh';
       document.querySelector('div.info-tab').style.border = 'none';
-      // document.querySelector('#mapbox-container').style.filter = 'blur(0px)';
-
     }
   }
 
