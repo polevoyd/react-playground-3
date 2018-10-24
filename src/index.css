@@ -54,7 +54,8 @@
 }
 
 .location-input button:hover {
-  animation: bouncing-to-left 1s infinite;
+  /* animation: bouncing-to-left 1s infinite; */
+  width: 50vw;
 }
 
 @keyframes bouncing-to-left {
