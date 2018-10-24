@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Tweets Map",
+  "short_name": "City Tweets",
+  "name": "City Tweets",
   "icons": [
     {
       "src": "favicon.ico",
