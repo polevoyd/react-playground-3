@@ -7,6 +7,7 @@ import './index.css';
 import MapContainer from './components/MapContainer';
 import InfoButton from './components/InfoButton';
 import InfoTab from './components/InfoTab';
+require('dotenv').config();
 
 /* ------------------------------------------------------------------------------------------- */
 //          Main component of an app
