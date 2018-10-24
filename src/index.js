@@ -75,7 +75,7 @@ class App extends React.Component {
   requestLocationGeocode() {
 
     // Building request and based on response create a map
-    const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.location}.json?access_token=${process.env.REACT_APP_MAPS_KEY}`;
+    const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.location}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
     
     // Sending a request
     fetch(linkToRequest)
