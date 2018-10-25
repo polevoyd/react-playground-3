@@ -39,7 +39,7 @@ body {
   border: none;
   height: 100%;
   width: 50vw;
-  font-size: 1.2em;
+  font-size: 120%;
   box-sizing: border-box;
   padding-left: 1em;
   border: 3px solid #DC965A;
@@ -52,17 +52,19 @@ body {
   border-radius: 2em;
   width: 20vw;
   justify-self: right;
-  font-size: 1.2em;
+  font-size: 120%;
   color: white;
-  border: 3px solid #DC965A;
+  border: 3px solid rgb(219, 150, 89);
   background-color: #DC965A;
   transition: 0.3s;
+  
 }
 
 .location-input button:hover {
-  background-color: rgb(175, 104, 41);
+  background-color: rgb(219, 114, 22);
+  box-shadow: inset 0px 0px 17px 15px rgb(219, 150, 89);
   transition: 0.3s;
-  font-size: 2
+  text-shadow: 1px 1px 1px black;
 }
 
 @keyframes bouncing-to-left {
@@ -164,7 +166,9 @@ body {
 
 .info-icon:hover {
 	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
-	        animation: heartbeat 1.5s ease-in-out infinite both;
+  animation: heartbeat 1.5s ease-in-out infinite both;
+  box-shadow: 1px 1px 1px black;
+  border: 3px solid white;
 }
 
 /* ----------------------------------------------
