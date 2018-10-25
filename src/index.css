@@ -7,6 +7,11 @@
   margin: 0px;
 }
 
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 #mapbox-container {
   height: 100vh;
   width: 100vw;
@@ -19,21 +24,22 @@
   grid-template-columns: 50% 50%;
   grid-template-rows: 100%;
   position: absolute;
-  top: 1em;
+  top: 5vh;
+  left: 5vw;
   z-index: 2;
-  height: 2em;
-  width: 90vw;
+  height: 5vh;
+  width: 50vw;
   margin: 0 1em;
 }
 
 .location-input input{
   grid-column: 1;
   grid-row: 1;
-  border-radius: 1em;
+  border-radius: 2em;
   border: none;
   height: 100%;
-  width: 90vw;
-  font-size: 0.8em;
+  width: 50vw;
+  font-size: 1.2em;
   box-sizing: border-box;
   padding-left: 1em;
   border: 3px solid #DC965A;
@@ -43,10 +49,10 @@
   grid-column: 2;
   grid-row: 1;
   border: none;
-  border-radius: 1em;
-  width: 30vw;
+  border-radius: 2em;
+  width: 20vw;
   justify-self: right;
-  font-size: 0.8em;
+  font-size: 1.2em;
   color: white;
   border: 3px solid #DC965A;
   background-color: #DC965A;
@@ -54,7 +60,9 @@
 }
 
 .location-input button:hover {
-  width: 50vw;
+  background-color: rgb(175, 104, 41);
+  transition: 0.3s;
+  font-size: 2
 }
 
 @keyframes bouncing-to-left {
@@ -133,12 +141,12 @@
 
 .info-icon {
   position: absolute;
-  top: 4em;
-  left: 1em;
+  top: 4vh;
+  right: 5vw;
   border-radius: 50%;
   border: 3px solid #DC965A;
-  height: 4em;
-  width: 4em;
+  height: 7vh;
+  width: 7vh;
   transition: 0.7s;
   display: grid;
   margin: 0 auto;
@@ -151,7 +159,7 @@
 .info-icon h1 {
   justify-self: center;
   align-self: center;
-  font-size: 3.5em;
+  font-size: 5vh;
 }
 
 .info-icon:hover {
@@ -207,12 +215,13 @@
 
 .info-tab {
   position: absolute;
-  top: 0;
-  width: 98vw;
+  top: -1em;
+  right: -1em;
+  width: 40vw;
   height: 0;
   overflow-x: hidden;
   overflow-y: hidden;
-  transition: 0.4s;
+  transition: 0.3s;
   text-align: center;
 }
 
