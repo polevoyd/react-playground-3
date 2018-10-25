@@ -27,8 +27,8 @@ body {
   top: 5vh;
   left: 5vw;
   z-index: 2;
-  height: 5vh;
-  width: 50vw;
+  height: 3em;
+  width: 60vw;
   margin: 0 1em;
 }
 
@@ -38,8 +38,8 @@ body {
   border-radius: 2em;
   border: none;
   height: 100%;
-  width: 50vw;
-  font-size: 120%;
+  width: 60vw;
+  font-size: 1.2em;
   box-sizing: border-box;
   padding-left: 1em;
   border: 3px solid #DC965A;
@@ -50,9 +50,9 @@ body {
   grid-row: 1;
   border: none;
   border-radius: 2em;
-  width: 20vw;
+  width: 30vw;
   justify-self: right;
-  font-size: 120%;
+  font-size: 1.2em;
   color: white;
   border: 3px solid rgb(219, 150, 89);
   background-color: #DC965A;
@@ -147,8 +147,8 @@ body {
   right: 5vw;
   border-radius: 50%;
   border: 3px solid #DC965A;
-  height: 7vh;
-  width: 7vh;
+  height: 4em;
+  width: 4em;
   transition: 0.7s;
   display: grid;
   margin: 0 auto;
@@ -161,14 +161,14 @@ body {
 .info-icon h1 {
   justify-self: center;
   align-self: center;
-  font-size: 5vh;
+  font-size: 2em;
 }
 
 .info-icon:hover {
 	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
   animation: heartbeat 1.5s ease-in-out infinite both;
-  box-shadow: 1px 1px 1px black;
-  border: 3px solid white;
+  /* box-shadow: 1px 1px 1px black;
+  border: 3px solid white; */
 }
 
 
@@ -223,7 +223,7 @@ body {
   position: absolute;
   top: -1em;
   right: -1em;
-  width: 40vw;
+  width: 50vw;
   height: 0;
   overflow-x: hidden;
   overflow-y: hidden;
