@@ -23,7 +23,7 @@ class App extends React.Component {
       // set initial location to current location and load it on mount
       // 'Seattle' - only for a testing simplicity
       location: 'Los Angeles',
-      locationLngLat: this.getCoordinatesFromURL(), // [-122.3447, 47.6151]
+      locationLngLat: [-122.3447, 47.6151],
       tweets: []
     }
 
@@ -41,7 +41,7 @@ class App extends React.Component {
 
     // this.getCoordinatesFromURL();
     // Requesting tweets for a default starting location
-    setTimeout(() => this.requestLocationGeocode(this.state.location), 500)
+    this.requestLocationGeocode(this.state.location)
     // this.requestLocationGeocode(this.state.location)
 
     // starting to search for venue
