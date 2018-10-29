@@ -30,6 +30,7 @@ body {
   height: 3em;
   width: 60vw;
   margin: 0 1em;
+
 }
 
 .location-input input{
@@ -43,6 +44,10 @@ body {
   box-sizing: border-box;
   padding-left: 1em;
   border: 3px solid #DC965A;
+}
+
+.location-input input:focus {
+  
 }
 
 .location-input button {
@@ -154,6 +159,7 @@ body {
   margin: 0 auto;
   z-index: 1;
   color: #DC965A;
+  z-index: 3;
 
   /* add inner shadow  */
 }
@@ -229,6 +235,7 @@ body {
   overflow-y: hidden;
   transition: 0.3s;
   text-align: center;
+  z-index: 2;
 }
 
 .info-tab * {

@@ -39,13 +39,14 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    this.getCoordinatesFromURL();
+    // this.getCoordinatesFromURL();
     // Requesting tweets for a default starting location
-    this.requestLocationGeocode(this.state.location)
+    setTimeout(() => this.requestLocationGeocode(this.state.location), 500)
+    // this.requestLocationGeocode(this.state.location)
 
     // starting to search for venue
     // This has to be done with a pause, so we not getting a empty array
-    setTimeout(() => this.searchForTweets(), 1000);
+    setTimeout(() => this.searchForTweets(), 1500);
   }
 
   /* ------------------------------------------------------------------------------------------- */
