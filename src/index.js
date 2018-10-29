@@ -46,7 +46,7 @@ class App extends React.Component {
 
     // starting to search for venue
     // This has to be done with a pause, so we not getting a empty array
-    setTimeout(() => this.searchForTweets(), 1500);
+    setTimeout(() => this.searchForTweets(), 1000);
   }
 
   /* ------------------------------------------------------------------------------------------- */
