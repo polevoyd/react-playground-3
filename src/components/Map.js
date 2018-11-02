@@ -112,7 +112,7 @@ class Map extends React.Component {
         maxZoom: 15,
         interactive: true
     })
-
+  
     // Listener to change state depending on a map center
     // Map starting to lag on with a listener - so turning it off
     // map.on('mouseup', this.props.handleCenterChange);
@@ -129,6 +129,7 @@ class Map extends React.Component {
     // as a this.props.coordinates
     // Creating and rendering a mapbox
     this.renderMapToScreen();
+    console.log('hello, map is done!')
   }
 
   render() {
