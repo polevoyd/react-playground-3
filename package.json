@@ -12,7 +12,9 @@
     "react-google-maps": "^9.4.5",
     "react-map-gl": "^3.3.6",
     "react-mapbox-gl": "^4.0.0",
+    "react-redux": "^5.1.0",
     "react-scripts": "2.0.5",
+    "redux": "^4.0.1",
     "request": "^2.88.0",
     "twitter": "^1.7.1",
     "twitter-node-client": "0.0.6"
