@@ -44,7 +44,6 @@ class Map extends React.Component {
   //          Creating pins from a tweets array
   /* ------------------------------------------------------------------------------------------- */
 
-
   createPins(arrayOfTweets) {
 
     arrayOfMarkers = arrayOfTweets
@@ -129,11 +128,9 @@ class Map extends React.Component {
     // as a this.props.coordinates
     // Creating and rendering a mapbox
     this.renderMapToScreen();
-    console.log('hello, map is done!')
   }
 
   render() {
-
     return (
       <div></div>
     );
