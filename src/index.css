@@ -36,14 +36,15 @@ body {
 .location-input input{
   grid-column: 1;
   grid-row: 1;
-  border-radius: 2em;
+  border-radius: 10vw;
   border: none;
   height: 100%;
   width: 60vw;
-  font-size: 1.2em;
+  font-size: 4vw;
   box-sizing: border-box;
   padding-left: 1em;
   border: 3px solid #DC965A;
+  background-color: rgb(255, 200, 152);
 }
 
 .location-input *:focus {
@@ -57,7 +58,7 @@ body {
   border-radius: 2em;
   width: 30vw;
   justify-self: right;
-  font-size: 1.2em;
+  font-size: 4vw;
   color: white;
   border: 3px solid rgb(219, 150, 89);
   background-color: #DC965A;
@@ -148,12 +149,12 @@ body {
 
 .info-icon {
   position: absolute;
-  top: 4vh;
-  right: 5vw;
+  top: 3vw;
+  right: 4vw;
   border-radius: 50%;
   border: 3px solid #DC965A;
-  height: 4em;
-  width: 4em;
+  height: 15vw;
+  width: 15vw;
   transition: 0.7s;
   display: grid;
   margin: 0 auto;
@@ -167,7 +168,7 @@ body {
 .info-icon h1 {
   justify-self: center;
   align-self: center;
-  font-size: 2em;
+  font-size: 8vw;
 }
 
 .info-icon:hover {
@@ -236,12 +237,15 @@ body {
   transition: 0.3s;
   text-align: center;
   z-index: 2;
+  font-size: 4vw;
 }
 
 .info-tab * {
-  font-size: 1em;
+  font-size: 4vw;
   color: white;
-  margin: 1em 3em 0 3em;
+  /* margin: 3vh 4vw 0 3em; */
+  margin-left: 1vw;
+  margin-right: 2vw;
 }
 
 .made-by {
