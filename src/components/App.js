@@ -15,12 +15,10 @@ require('dotenv').config();
 class App extends React.Component {
 
   constructor(props) {
-
     super(props);
     this.state = {
 
       // set initial location to current location and load it on mount
-      // 'Seattle' - only for a testing simplicity
       location: 'Los Angeles, California, United States',
       locationLngLat: [-118.2439, 34.0544],
       tweets: []
@@ -37,18 +35,11 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    // this.getCoordinatesFromURL();
-    // Requesting tweets for a default starting location
-    // this.requestLocationGeocode(this.state.location)
-
     // setting initial state
     this.setState({
       location: 'Los Angeles, California, United States',
       locationLngLat: [-118.2439, 34.0544],
     })
-
-    // starting to search for venue
-    // This has to be done with a pause, so we not getting a empty array
     this.searchForTweets();
   }
 
@@ -57,7 +48,6 @@ class App extends React.Component {
   /* ------------------------------------------------------------------------------------------- */
 
   getCoordinatesFromURL = () => {
-
     return window.location.hash.split('/').splice(1, 2).map( element => parseFloat(element));
   }
 
@@ -75,7 +65,7 @@ class App extends React.Component {
       .then(results => results.json())
       .then((results) => {
 
-        // For just take first and most relevant result
+        // Take first and most relevant result
         // results.features - array of locations
         this.setState({
           location: results.features[0].place_name,
@@ -93,10 +83,8 @@ class App extends React.Component {
     event.preventDefault();
     this.requestLocationGeocode(this.state.location)
 
-    // starting to search for venue
     // This has to be done with a pause, so we not getting a empty array
     setTimeout(() => this.searchForTweets(), 1000);
-    
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -105,14 +93,10 @@ class App extends React.Component {
 
   handleLocationChange(event) {
 
-    // console.log(userLocation)
-    
     this.setState({
-
       location: event.target.value,
     })
   }
-
 
   /* ------------------------------------------------------------------------------------------- */
   //           Helper function: generate random coordinates within radius
