@@ -180,7 +180,6 @@ class App extends React.Component {
   /* ------------------------------------------------------------------------------------------- */
   
   render() {
-
     return (
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
