@@ -115,7 +115,6 @@ class Map extends React.Component {
     // Listener to change state depending on a map center
     // Map starting to lag on with a listener - so turning it off
     // map.on('mouseup', this.props.handleCenterChange);
-
   }
 
   /* ------------------------------------------------------------------------------------------- */
