@@ -28,7 +28,6 @@ class App extends React.Component {
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
-    this.handleCenterChange = this.handleCenterChange.bind(this);
     this.searchForTweets = this.searchForTweets.bind(this);
   }
 
@@ -51,18 +50,6 @@ class App extends React.Component {
     // starting to search for venue
     // This has to be done with a pause, so we not getting a empty array
     this.searchForTweets();
-  }
-
-  /* ------------------------------------------------------------------------------------------- */
-  //          Change state based on a map center change
-  /* ------------------------------------------------------------------------------------------- */
-
-  handleCenterChange(event) {
-
-      this.setState({
-
-        locationLngLat: [event.lngLat.lng , event.lngLat.lat]
-      })
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -213,7 +200,7 @@ class App extends React.Component {
     return (
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
-        <MapContainer coordinates={this.state.locationLngLat} handleCenterChange={this.handleCenterChange} tweets={this.state.tweets}/>
+        <MapContainer coordinates={this.state.locationLngLat} tweets={this.state.tweets}/>
         <InfoButton handleInfoButtonClick={this.handleInfoButtonClick}/>
         <InfoTab />
       </div>
