@@ -6,6 +6,8 @@ import '../index.css';
 import MapContainer from './MapContainer';
 import InfoButton from './InfoButton';
 import InfoTab from './InfoTab';
+import {connect} from 'react-redux';
+import {setLocationAndCoordinates, setLocationCity, setTweets} from '../actions/actions'
 require('dotenv').config();
 
 /* ------------------------------------------------------------------------------------------- */
@@ -16,13 +18,6 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-
-      // set initial location to current location and load it on mount
-      location: 'Los Angeles, California, United States',
-      locationLngLat: [-118.2439, 34.0544],
-      tweets: []
-    }
 
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
@@ -36,10 +31,10 @@ class App extends React.Component {
   componentDidMount() {
 
     // setting initial state
-    this.setState({
-      location: 'Los Angeles, California, United States',
-      locationLngLat: [-118.2439, 34.0544],
-    })
+    // this.setState({
+    //   location: 'Los Angeles, California, United States',
+    //   locationLngLat: [-118.2439, 34.0544],
+    // })
     this.searchForTweets();
   }
 
@@ -58,7 +53,7 @@ class App extends React.Component {
   requestLocationGeocode() {
 
     // Building request and based on response create a map
-    const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.location}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
+    const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.props.state.location}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
     
     // Sending a request
     fetch(linkToRequest)
@@ -67,10 +62,7 @@ class App extends React.Component {
 
         // Take first and most relevant result
         // results.features - array of locations
-        this.setState({
-          location: results.features[0].place_name,
-          locationLngLat: results.features[0].center
-        })
+        this.props.dispatch(setLocationAndCoordinates(results.features[0].place_name, results.features[0].center))
       });
   }
 
@@ -81,7 +73,7 @@ class App extends React.Component {
   handleLocationSubmit(event) {
 
     event.preventDefault();
-    this.requestLocationGeocode(this.state.location)
+    this.requestLocationGeocode(this.props.state.location)
 
     // This has to be done with a pause, so we not getting a empty array
     setTimeout(() => this.searchForTweets(), 1000);
@@ -92,10 +84,7 @@ class App extends React.Component {
   /* ------------------------------------------------------------------------------------------- */
 
   handleLocationChange(event) {
-
-    this.setState({
-      location: event.target.value,
-    })
+    this.props.dispatch(setLocationCity(event.target.value))
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -124,7 +113,7 @@ class App extends React.Component {
   searchForTweets() {
 
     // const linkToFetch = `http://localhost:4000/tweets?lat=${this.state.locationLngLat[1]}&lng=${this.state.locationLngLat[0]}`;
-    const linkToFetch = `https://cityglow.herokuapp.com/tweets?lat=${this.state.locationLngLat[1]}&lng=${this.state.locationLngLat[0]}`;
+    const linkToFetch = `https://cityglow.herokuapp.com/tweets?lat=${this.props.state.locationLngLat[1]}&lng=${this.props.state.locationLngLat[0]}`;
     
     fetch(linkToFetch)
     .then(response => response.json())
@@ -136,19 +125,16 @@ class App extends React.Component {
       const tweets = response
       .concat(response)
       .map(element => {
-
         return {
-           point: this.generateCoordinateWithin(this.state.locationLngLat, 7),
+           point: this.generateCoordinateWithin(this.props.state.locationLngLat, 7),
            text: element.text,
            pic: element.picture ? element.picture[0].media_url : undefined,
            user: element.user
         }
       })
-      
+   
       // Adding all points to a state
-      this.setState({
-        tweets: tweets
-      })
+      this.props.dispatch(setTweets(tweets));
     })
     .catch(error => console.error(error));
   }
@@ -183,7 +169,7 @@ class App extends React.Component {
     return (
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
-        <MapContainer coordinates={this.state.locationLngLat} tweets={this.state.tweets}/>
+        <MapContainer coordinates={this.props.state.locationLngLat} tweets={this.props.state.tweets}/>
         <InfoButton handleInfoButtonClick={this.handleInfoButtonClick}/>
         <InfoTab />
       </div>
@@ -191,5 +177,9 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {state : state}
+}
+
+export default connect(mapStateToProps)(App);
 
