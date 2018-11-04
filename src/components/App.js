@@ -30,6 +30,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(setLocationAndCoordinates('Los Angeles, California, United States', [-118.2439, 34.0544]));
+    
     // This has to be done with a pause, so we not getting a empty array
     setTimeout(() => this.searchForTweets(), 1000);
   }
@@ -73,7 +74,7 @@ class App extends React.Component {
 
     
     // This has to be done with a pause, so we not getting a empty array
-    setTimeout(() => this.searchForTweets(), 10);
+    this.searchForTweets()
   }
 
   /* ------------------------------------------------------------------------------------------- */
