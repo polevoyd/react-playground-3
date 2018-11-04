@@ -30,7 +30,9 @@ class Map extends React.Component {
       setTimeout(() => {
         
       // Clear array of pins
-      arrayOfMarkers = [];
+      for(let element of arrayOfMarkers) {
+        element.remove();
+      }
 
         // Creating and add pins to map
         this.createPins(this.props.tweets);
