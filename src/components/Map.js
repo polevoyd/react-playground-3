@@ -26,14 +26,14 @@ class Map extends React.Component {
       // Setting map center if it changed
       map.setCenter(nextProps.coordinates)
 
-      // Need delay to make sure we have something to render
-      setTimeout(() => {
-        
       // Clear array of pins
       for(let element of arrayOfMarkers) {
         element.remove();
       }
 
+      // Need delay to make sure we have something to render
+      setTimeout(() => {
+        
         // Creating and add pins to map
         this.createPins(this.props.tweets);
       }, 3000);
