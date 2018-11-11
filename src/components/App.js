@@ -72,7 +72,7 @@ class App extends React.Component {
     this.requestLocationGeocode(this.props.state.location)
 
     // This has to be done with a pause, so we not getting a empty array
-    setTimeout(() => this.searchForTweets(), 1000);
+    this.searchForTweets()
   }
 
   /* ------------------------------------------------------------------------------------------- */

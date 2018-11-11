@@ -32,11 +32,8 @@ class Map extends React.Component {
       }
 
       // Need delay to make sure we have something to render
-      setTimeout(() => {
-        
-        // Creating and add pins to map
-        this.createPins(this.props.tweets);
-      }, 3000);
+      // Creating and add pins to map
+      // this.createPins(this.props.tweets);
     }
   }
 
@@ -97,24 +94,21 @@ class Map extends React.Component {
 
   renderMapToScreen(){
 
-  // mapbox://styles/mapbox/dark-v9
- 
-
-    mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
-    map = new mapboxgl.Map({
-        container: document.getElementById('mapbox-container'),
-        style: 'mapbox://styles/mapbox/dark-v9',
-        center: ['-118.2439', '34.0544'],
-        zoom: 12,
-        hash: false,
-        minZoom: 11,
-        maxZoom: 15,
-        interactive: true
-    })
-  
-    // Listener to change state depending on a map center
-    // Map starting to lag on with a listener - so turning it off
-    // map.on('mouseup', this.props.handleCenterChange);
+      mapboxgl.accessToken = config.REACT_APP_MAPS_KEY;
+      map = new mapboxgl.Map({
+          container: document.getElementById('mapbox-container'),
+          style: 'mapbox://styles/mapbox/dark-v9',
+          center: ['-118.2439', '34.0544'],
+          zoom: 12,
+          hash: false,
+          minZoom: 11,
+          maxZoom: 15,
+          interactive: true
+      })
+    
+      // Listener to change state depending on a map center
+      // Map starting to lag on with a listener - so turning it off
+      // map.on('mouseup', this.props.handleCenterChange);
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -127,6 +121,10 @@ class Map extends React.Component {
     // as a this.props.coordinates
     // Creating and rendering a mapbox
     this.renderMapToScreen();
+
+    setTimeout(() => {
+      this.createPins(this.props.tweets);
+    }, 3000)
   }
 
   render() {
