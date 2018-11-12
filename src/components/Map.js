@@ -29,11 +29,10 @@ class Map extends React.Component {
       // Clear array of pins
       for(let element of arrayOfMarkers)
         element.remove()
-        
+
         this.createPins(nextProps.tweets);
     }
   }
-  
 
   /* ------------------------------------------------------------------------------------------- */
   //          Creating pins from a tweets array
