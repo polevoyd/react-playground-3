@@ -31,9 +31,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.dispatch(setLocationAndCoordinates('Los Angeles, California, United States', [-118.2439, 34.0544]));
     // This has to be done with a pause, so we not getting a empty array
-    setTimeout(() => {
       this.searchForTweets()
-    }, 3000);
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -74,10 +72,7 @@ class App extends React.Component {
     this.requestLocationGeocode(this.props.state.location)
 
     // This has to be done with a pause, so we not getting a empty array
-    setTimeout(() => {
-      this.searchForTweets()
-    }, 3000);
-    
+    this.searchForTweets()
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -133,7 +128,9 @@ class App extends React.Component {
            user: element.user
         }
       })
-   
+      return tweets;
+    })
+    .then(tweets => {
       // Adding all points to a state
       this.props.dispatch(setTweets(tweets));
     })

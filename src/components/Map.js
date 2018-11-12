@@ -27,13 +27,17 @@ class Map extends React.Component {
       map.setCenter(nextProps.coordinates)
 
       // Clear array of pins
-      for(let element of arrayOfMarkers) {
-        element.remove();
-      }
+      // for(let element of arrayOfMarkers) {
+      //   element.remove();
+      // }
+
+
 
       // Need delay to make sure we have something to render
       // Creating and add pins to map
-      this.createPins(this.props.tweets);
+    //       setTimeout(() => {
+    //   this.createPins(nextProps.tweets);
+    // }, 3000)
     }
   }
 
@@ -119,12 +123,15 @@ class Map extends React.Component {
 
     // We have a long/lat 
     // as a this.props.coordinates
-    // Creating and rendering a mapbox
+    // Creating and rendering a mapboxs
     this.renderMapToScreen();
 
-    setTimeout(() => {
-      this.createPins(this.props.tweets);
-    }, 5000)
+
+
+    // setTimeout(() => {
+    //   this.createPins(this.props.tweets);
+    // }, 3000)
+    
   }
 
   render() {
