@@ -21,16 +21,20 @@ class Map extends React.Component {
 
   componentWillReceiveProps(nextProps){
 
+    map.setCenter(this.props.state.locationLngLat)
+
+    console.log()
     // Setting a new map center after user submit a new location
-    if (nextProps.coordinates !== this.props.coordinates) {
+    if (nextProps.state.locationLngLat !== this.props.state.locationLngLat) {
 
       // Setting map center if it changed
-      map.setCenter(nextProps.coordinates)
+      // map.setCenter(nextProps.coordinates)
 
+      
       // Clear array of pins
-      // for(let element of arrayOfMarkers) {
-      //   element.remove();
-      // }
+      for(let element of arrayOfMarkers) {
+        element.remove();
+      }
 
       // console.log(nextProps)
 
@@ -123,10 +127,14 @@ class Map extends React.Component {
 
   componentDidMount(){
 
+    // console.log(this.props.state.locationLngLat)
+
     // We have a long/lat 
     // as a this.props.coordinates
     // Creating and rendering a mapboxs
     this.renderMapToScreen();
+    
+
 
 
 

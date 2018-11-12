@@ -8,7 +8,6 @@ import InfoButton from './InfoButton';
 import InfoTab from './InfoTab';
 import {connect} from 'react-redux';
 import {setLocationAndCoordinates, setLocationCity, setTweets} from '../actions/actions'
-import { link } from 'fs';
 require('dotenv').config();
 
 /* ------------------------------------------------------------------------------------------- */
@@ -51,7 +50,7 @@ class App extends React.Component {
 
     // Building request and based on response create a map
     const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.props.state.location}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
-  
+    
     // Sending a request
     fetch(linkToRequest)
       .then(results => results.json())
@@ -73,7 +72,10 @@ class App extends React.Component {
     this.requestLocationGeocode(this.props.state.location)
 
     // This has to be done with a pause, so we not getting a empty array
-    this.searchForTweets()
+    setTimeout(() => {
+      this.searchForTweets()
+    }, 3000);
+    
   }
 
   /* ------------------------------------------------------------------------------------------- */
@@ -168,7 +170,7 @@ class App extends React.Component {
     return (
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
-        <MapContainer/>
+        <MapContainer coordinates={this.props.state.locationLngLat} tweets={this.props.state.tweets}/>
         <InfoButton handleInfoButtonClick={this.handleInfoButtonClick}/>
         <InfoTab />
       </div>
