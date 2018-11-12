@@ -124,7 +124,7 @@ class Map extends React.Component {
 
     setTimeout(() => {
       this.createPins(this.props.tweets);
-    }, 3000)
+    }, 5000)
   }
 
   render() {
