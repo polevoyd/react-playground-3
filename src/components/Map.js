@@ -33,7 +33,7 @@ class Map extends React.Component {
 
       // Need delay to make sure we have something to render
       // Creating and add pins to map
-      // this.createPins(this.props.tweets);
+      this.createPins(this.props.tweets);
     }
   }
 
