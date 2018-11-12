@@ -168,7 +168,7 @@ class App extends React.Component {
     return (
       <div>
         <LocationInput handleLocationSubmit={this.handleLocationSubmit} handleLocationChange={this.handleLocationChange} />
-        <MapContainer coordinates={this.props.state.locationLngLat} tweets={this.props.state.tweets}/>
+        <MapContainer/>
         <InfoButton handleInfoButtonClick={this.handleInfoButtonClick}/>
         <InfoTab />
       </div>

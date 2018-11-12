@@ -1,8 +1,9 @@
 import { config } from '../config';
 import React from 'react';
 import mapboxgl from 'mapbox-gl';
-
+import {connect} from 'react-redux';
 import '../index.css';
+import { stat } from 'fs';
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -142,4 +143,8 @@ class Map extends React.Component {
   }
 }
 
-export default Map;
+const mapStateToProps = (state) => {
+  return { state : state }
+}
+
+export default connect(mapStateToProps)(Map);
