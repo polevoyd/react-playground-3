@@ -31,6 +31,7 @@ class Map extends React.Component {
       //   element.remove();
       // }
 
+      // console.log(nextProps)
 
 
       // Need delay to make sure we have something to render

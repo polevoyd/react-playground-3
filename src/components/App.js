@@ -8,6 +8,7 @@ import InfoButton from './InfoButton';
 import InfoTab from './InfoTab';
 import {connect} from 'react-redux';
 import {setLocationAndCoordinates, setLocationCity, setTweets} from '../actions/actions'
+import { link } from 'fs';
 require('dotenv').config();
 
 /* ------------------------------------------------------------------------------------------- */
@@ -50,7 +51,7 @@ class App extends React.Component {
 
     // Building request and based on response create a map
     const linkToRequest = `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.props.state.location}.json?access_token=${config.REACT_APP_MAPS_KEY}`;
-    
+  
     // Sending a request
     fetch(linkToRequest)
       .then(results => results.json())
