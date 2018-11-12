@@ -20,32 +20,20 @@ class Map extends React.Component {
   /* ------------------------------------------------------------------------------------------- */
 
   componentWillReceiveProps(nextProps){
-
-    map.setCenter(this.props.state.locationLngLat)
-
-    console.log()
-    // Setting a new map center after user submit a new location
     if (nextProps.state.locationLngLat !== this.props.state.locationLngLat) {
-
       // Setting map center if it changed
-      // map.setCenter(nextProps.coordinates)
+      map.setCenter(nextProps.state.locationLngLat)
+    }
 
-      
+    if ((nextProps.state.tweets) && (nextProps.state.tweets !== this.props.state.tweets)) {
       // Clear array of pins
-      for(let element of arrayOfMarkers) {
-        element.remove();
-      }
-
-      // console.log(nextProps)
-
-
-      // Need delay to make sure we have something to render
-      // Creating and add pins to map
-    //       setTimeout(() => {
-    //   this.createPins(nextProps.tweets);
-    // }, 3000)
+      for(let element of arrayOfMarkers)
+        element.remove()
+        
+        this.createPins(nextProps.tweets);
     }
   }
+  
 
   /* ------------------------------------------------------------------------------------------- */
   //          Creating pins from a tweets array
